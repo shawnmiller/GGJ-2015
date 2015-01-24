@@ -3,17 +3,19 @@ using System.Collections;
 
 public class Spawner : MonoBehaviour
 {
-	public ProjectileType type;
+	public GameObject projectile;
 
 	public float spawnTime;
 	private float currentTime;
 
+	public Vector2 projectileDirection;
 	public float projectileSpeed;
+	public ColorType projectileColor;
 
 	void Start()
 	{
 		bool error = false;
-		if (type == ProjectileType.None)
+		if (projectile == null)
 		{
 			error = true;
 			Debug.LogError("Spawner with a missing spawn object: " + name);
@@ -31,9 +33,11 @@ public class Spawner : MonoBehaviour
 		if (currentTime >= spawnTime)
 		{
 			currentTime -= spawnTime;
-			GameObject obj = ObjectFactory.Instance.Spawn(type, transform.position);
-			Projectile projectile = obj.GetComponent<Projectile>();
-			projectile.moveSpeed = projectileSpeed;
+			GameObject obj = Instantiate(projectile, transform.position, Quaternion.identity) as GameObject;
+			Projectile proj = obj.GetComponent<Projectile>();
+			proj.velocity = projectileDirection;
+			proj.moveSpeed = projectileSpeed;
+			proj.colorType = projectileColor;
 		}
 	}
 }

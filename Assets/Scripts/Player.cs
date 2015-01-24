@@ -30,14 +30,14 @@ public class Player : MonoBehaviour
 		GamePadState state = GamePad.GetState(PlayerIndex.One);
 		aButton.Update(state.Buttons.A);
 
-		onGround = Physics.Raycast(transform.position, Vector3.down, 1.1f, ~(1 << LayerMask.NameToLayer("Player")));
+		onGround = Physics.Raycast(transform.position, Vector3.down, 1.2f, ~(1 << LayerMask.NameToLayer("Player")));
 
 		Debug.Log(onGround);
 
-		velocity = new Vector2(state.ThumbSticks.Left.X, 0f);
-
 		if (state.IsConnected)
 		{
+			velocity = new Vector2(state.ThumbSticks.Left.X, 0f);
+
 			if (aButton.Down() && onGround)
 			{
 				isJumping = true;
@@ -50,7 +50,7 @@ public class Player : MonoBehaviour
 
 			velocity.y = (jumpStrength * Time.deltaTime) - jumpTime * jumpTime * gravity * Time.deltaTime;
 
-			if (jumpTime > 0.5f && onGround)
+			if (jumpTime > 0.5f && controller.isGrounded)
 			{
 				isJumping = false;
 				jumpTime = 0f;

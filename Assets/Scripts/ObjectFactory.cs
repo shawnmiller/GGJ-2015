@@ -15,7 +15,7 @@ public class ObjectFactory : MSingleton<ObjectFactory>
 		}
 	}
 
-	public GameObject Spawn(ProjectileType type, Vector3 pos)
+	/*public GameObject Spawn(ProjectileType type, Vector3 pos)
 	{
 		return Instantiate(GetObject(type), pos, Quaternion.identity) as GameObject;
 	}
@@ -23,5 +23,5 @@ public class ObjectFactory : MSingleton<ObjectFactory>
 	public GameObject GetObject(ProjectileType type)
 	{
 		return objectsToSpawn[type.ToString()];
-	}
+	}*/
 }

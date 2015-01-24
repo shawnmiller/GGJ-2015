@@ -4,7 +4,17 @@ public class Projectile : MonoBehaviour
 {
 	[HideInInspector]
 	public float moveSpeed;
+
+	[HideInInspector]
 	public Vector2 velocity;
+
+	[HideInInspector]
+	public ColorType colorType;
+
+	void Start()
+	{
+		renderer.material.color = PickColor.Get(colorType);
+	}
 
 	void Update()
 	{
