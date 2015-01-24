@@ -71,7 +71,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 6
   gravity: 10
-  jumpStrength: 1.5
+  jumpStrength: 5
   canMove: 0
 --- !u!143 &14374678
 CharacterController:

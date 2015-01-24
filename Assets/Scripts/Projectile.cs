@@ -35,6 +35,13 @@ public class Projectile : MonoBehaviour
         set { permanent = value; }
     }
 
+	private bool destroyOnCollide;
+	public bool DestroyOnCollide
+	{
+		get { return destroyOnCollide; }
+		set { destroyOnCollide = value; }
+	}
+
 	void Update()
 	{
 		transform.position += transform.TransformDirection(velocity) * moveSpeed * Time.deltaTime;
@@ -52,7 +59,7 @@ public class Projectile : MonoBehaviour
 			Debug.Log("Hit Player");
 			GameManager.Instance.LevelFailed();
 		}
-		else if (other.tag == "Terrain")
+		else if (other.tag == "Terrain" && destroyOnCollide)
 		{
 			Debug.Log("Hit Terrain");
 			gameObject.GetComponent<PooledObject>().ReturnToPool();

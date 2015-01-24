@@ -11,6 +11,8 @@ public class Spawner : MonoBehaviour
 	public float projectileSpeed;
 	public ColorType projectileColor;
 	public bool permanant;
+	public bool destroyOnCollide = true;
+	public bool preLoad = true;
 
 	void Start()
 	{
@@ -28,16 +30,11 @@ public class Spawner : MonoBehaviour
 
 		if (permanant)
 		{
-			spawnTime = -1f;
+			spawnTime = 0f;
 			projectileDirection = Vector2.zero;
 			projectileSpeed = 0f;
 
-			GameObject obj = ProjectileManager.Instance.Spawn(transform.position);
-			Projectile proj = obj.GetComponent<Projectile>();
-			proj.Velocity = projectileDirection;
-			proj.MoveSpeed = projectileSpeed;
-			proj.ColorType = projectileColor;
-			proj.Permanent = permanant;
+			SpawnProjectile();
 		}
 	}
 
@@ -45,17 +42,31 @@ public class Spawner : MonoBehaviour
 	{
 		if (!permanant)
 		{
-			currentTime += Time.deltaTime;
-			if (currentTime >= spawnTime)
+			if (preLoad)
 			{
-				currentTime -= spawnTime;
-				GameObject obj = ProjectileManager.Instance.Spawn(transform.position);
-				Projectile proj = obj.GetComponent<Projectile>();
-				proj.Velocity = projectileDirection;
-				proj.MoveSpeed = projectileSpeed;
-				proj.ColorType = projectileColor;
-				proj.Permanent = permanant;
+				SpawnProjectile();
+				preLoad = false;
+			}
+			else
+			{
+				currentTime += Time.deltaTime;
+				if (currentTime >= spawnTime)
+				{
+					currentTime -= spawnTime;
+					SpawnProjectile();
+				}
 			}
 		}
+	}
+
+	void SpawnProjectile()
+	{
+		GameObject obj = ProjectileManager.Instance.Spawn(transform.position);
+		Projectile proj = obj.GetComponent<Projectile>();
+		proj.Velocity = projectileDirection;
+		proj.MoveSpeed = projectileSpeed;
+		proj.ColorType = projectileColor;
+		proj.Permanent = permanant;
+		proj.DestroyOnCollide = destroyOnCollide;
 	}
 }
