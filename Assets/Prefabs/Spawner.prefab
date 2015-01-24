@@ -36,15 +36,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 146262}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7598a8fe5f442584d97b666b14c9439e, type: 3}
+  m_Script: {fileID: 11500000, guid: 7217e95f755afd042a2f4edbd4617bcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 148376, guid: feaa94f28bd0a7949ba869b4c9562f0f, type: 2}
+  projectile: {fileID: 0}
   spawnTime: 0
   projectileDirection: {x: 0, y: 0}
   projectileSpeed: 0
+  projectileScale: {x: 0, y: 0, z: 0}
   projectileColor: 0
   permanant: 0
+  destroyOnCollide: 1
+  preLoad: 1
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

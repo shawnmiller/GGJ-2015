@@ -66,13 +66,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 174678}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1372a14883e6b4a46a24641a3d89522a, type: 3}
+  m_Script: {fileID: 11500000, guid: c58f411d0b236ac4bb01d31ded56cb68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 6
   gravity: 10
-  jumpStrength: 5
-  canMove: 0
+  jumpStrength: 6
+  canMove: 1
 --- !u!143 &14374678
 CharacterController:
   m_ObjectHideFlags: 1

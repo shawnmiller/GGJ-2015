@@ -96,13 +96,13 @@ GameObject:
 --- !u!114 &77387110
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11407368, guid: 6e5f52c36b900f2428ed985594109d8e,
+  m_PrefabParentObject: {fileID: 11471024, guid: 6e5f52c36b900f2428ed985594109d8e,
     type: 2}
   m_PrefabInternal: {fileID: 1205525144}
   m_GameObject: {fileID: 77387109}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6158099c7d1485142a4b5beb043bce4c, type: 3}
+  m_Script: {fileID: 11500000, guid: fb455b443e294054686b7463a21e923b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   type: 5
@@ -362,7 +362,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 846105911}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f8a55708c420c54c9518464a1515167, type: 3}
+  m_Script: {fileID: 11500000, guid: 617b069e62245f24db387c13e5162bab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &1205525144
@@ -585,13 +585,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1379721568}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1372a14883e6b4a46a24641a3d89522a, type: 3}
+  m_Script: {fileID: 11500000, guid: c58f411d0b236ac4bb01d31ded56cb68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 6
   gravity: 10
-  jumpStrength: 5
-  canMove: 0
+  jumpStrength: 6
+  canMove: 1
 --- !u!1001 &1612216855
 Prefab:
   m_ObjectHideFlags: 0
@@ -765,13 +765,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1766929407}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7598a8fe5f442584d97b666b14c9439e, type: 3}
+  m_Script: {fileID: 11500000, guid: 7217e95f755afd042a2f4edbd4617bcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 148376, guid: feaa94f28bd0a7949ba869b4c9562f0f, type: 2}
+  projectile: {fileID: 0}
   spawnTime: 0
   projectileDirection: {x: 0, y: 0}
   projectileSpeed: 0
+  projectileScale: {x: 0, y: 0, z: 0}
   projectileColor: 0
   permanant: 1
   destroyOnCollide: 0
@@ -795,10 +796,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 11402682, guid: 65b009ff99baf114da2a86f08d7f5e71, type: 2}
-      propertyPath: colors.Array.size
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 402682, guid: 65b009ff99baf114da2a86f08d7f5e71, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -831,30 +828,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
-    - target: {fileID: 11402682, guid: 65b009ff99baf114da2a86f08d7f5e71, type: 2}
-      propertyPath: colors.Array.data[3].g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11402682, guid: 65b009ff99baf114da2a86f08d7f5e71, type: 2}
-      propertyPath: colors.Array.data[3].b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11402682, guid: 65b009ff99baf114da2a86f08d7f5e71, type: 2}
-      propertyPath: colors.Array.data[3].r
-      value: .588235378
-      objectReference: {fileID: 0}
-    - target: {fileID: 11402682, guid: 65b009ff99baf114da2a86f08d7f5e71, type: 2}
-      propertyPath: colors.Array.data[1]
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11402682, guid: 65b009ff99baf114da2a86f08d7f5e71, type: 2}
-      propertyPath: colors.Array.data[2]
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 11402682, guid: 65b009ff99baf114da2a86f08d7f5e71, type: 2}
-      propertyPath: colors.Array.data[3]
-      value: 3
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 65b009ff99baf114da2a86f08d7f5e71, type: 2}
   m_RootGameObject: {fileID: 1906418372}
@@ -885,7 +858,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1906418372}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e86f4c3d5d34f94eb8d24d3c8e613bd, type: 3}
+  m_Script: {fileID: 11500000, guid: deb94f83749d1d84b93e889c68c99feb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   colors: 
