@@ -32,7 +32,9 @@ public class Player : MonoBehaviour
         GamePadState state = GamePad.GetState(PlayerIndex.One);
         aButton.Update(state.Buttons.A);
 
-        onGround = Physics.Raycast(transform.position, Vector3.down, 1.2f, ~(1 << LayerMask.NameToLayer("Player")));
+        onGround = Physics.Raycast(transform.position, Vector3.down, 0.6f, ~(1 << LayerMask.NameToLayer("Player")));
+
+		Debug.Log(onGround);
 
         if (onGround)
         {
@@ -59,17 +61,17 @@ public class Player : MonoBehaviour
 
             velocity.y = (jumpStrength * Time.deltaTime) - airbornTime * airbornTime * gravity * Time.deltaTime;
 
-            if (jumpTime > 0.5f && controller.isGrounded)
+            if (jumpTime > 0.5f && onGround)
             {
                 isJumping = false;
                 jumpTime = 0f;
             }
         }
 
-        if (!onGround && !isJumping)
-        {
-            velocity.y -= airbornTime * airbornTime * gravity * Time.deltaTime;
-        }
+		if (!onGround && !isJumping)
+		{
+			velocity.y -= airbornTime * airbornTime * gravity * Time.deltaTime;
+		}
 
         controller.Move(velocity * moveSpeed);
     }

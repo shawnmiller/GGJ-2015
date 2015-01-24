@@ -11,6 +11,7 @@ public class Projectile : MonoBehaviour
 	[HideInInspector]
 	public ColorType colorType;
 
+	[HideInInspector]
 	public bool permanent;
 
 	void Start()
