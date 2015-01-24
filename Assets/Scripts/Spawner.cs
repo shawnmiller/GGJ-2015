@@ -8,7 +8,7 @@ public class Spawner : MonoBehaviour {
     public float spawnTime;
     private float currentTime;
 
-    public float speed;
+    public float projectileSpeed;
 
 	void Start ()
     {
@@ -36,8 +36,8 @@ public class Spawner : MonoBehaviour {
         {
             currentTime -= spawnTime;
             GameObject obj = Instantiate(spawn, transform.position, Quaternion.identity) as GameObject;
-            //Projectile projectile = obj.GetComponent<Projectile>();
-            //projectile.speed = speed;
+            Projectile projectile = obj.GetComponent<Projectile>();
+            projectile.moveSpeed = projectileSpeed;
         }
 	}
 }
