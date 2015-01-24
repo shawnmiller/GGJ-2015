@@ -34,10 +34,10 @@ public class Spawner : MonoBehaviour
 
 			GameObject obj = ProjectileManager.Instance.Spawn(transform.position);
 			Projectile proj = obj.GetComponent<Projectile>();
-			proj.velocity = projectileDirection;
-			proj.moveSpeed = projectileSpeed;
-			proj.colorType = projectileColor;
-			proj.permanent = permanant;
+			proj.Velocity = projectileDirection;
+			proj.MoveSpeed = projectileSpeed;
+			proj.ColorType = projectileColor;
+			proj.Permanent = permanant;
 		}
 	}
 
@@ -51,10 +51,10 @@ public class Spawner : MonoBehaviour
 				currentTime -= spawnTime;
 				GameObject obj = ProjectileManager.Instance.Spawn(transform.position);
 				Projectile proj = obj.GetComponent<Projectile>();
-				proj.velocity = projectileDirection;
-				proj.moveSpeed = projectileSpeed;
-				proj.colorType = projectileColor;
-				proj.permanent = permanant;
+				proj.Velocity = projectileDirection;
+				proj.MoveSpeed = projectileSpeed;
+				proj.ColorType = projectileColor;
+				proj.Permanent = permanant;
 			}
 		}
 	}

@@ -2,22 +2,47 @@
 
 public class Projectile : MonoBehaviour
 {
-	[HideInInspector]
-	public float moveSpeed;
+	//[HideInInspector]
+	private float moveSpeed;
+    public float MoveSpeed
+    {
+        get { return moveSpeed; }
+        set { moveSpeed = value; }
+    }
 
-	[HideInInspector]
-	public Vector2 velocity;
+	//[HideInInspector]
+    private Vector2 velocity;
+    public Vector2 Velocity
+    {
+        get { return velocity; }
+        set { velocity = value; }
+    }
 
-	[HideInInspector]
-	public ColorType colorType;
+	//[HideInInspector]
+    private ColorType colorType;
+    public ColorType ColorType
+    {
+        get
+        { return colorType; }
+        set
+        {
+            colorType = value;
+            renderer.material.color = PickColor.Get(colorType);
+        }
+    }
 
-	[HideInInspector]
-	public bool permanent;
+	//[HideInInspector]
+    private bool permanent;
+    public bool Permanent
+    {
+        get { return permanent; }
+        set { permanent = value; }
+    }
 
-	void Start()
-	{
-		renderer.material.color = PickColor.Get(colorType);
-	}
+    //void Start()
+    //{
+    //    renderer.material.color = PickColor.Get(colorType);
+    //}
 
 	void Update()
 	{
