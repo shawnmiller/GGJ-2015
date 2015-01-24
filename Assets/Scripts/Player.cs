@@ -39,7 +39,9 @@ public class Player : MonoBehaviour
 
 			if (state.IsConnected)
 			{
-				onGround = Physics.Raycast(transform.position, Vector3.down, 0.6f, ~(1 << LayerMask.NameToLayer("Player")));
+				onGround = controller.isGrounded;//Physics.Raycast(transform.position, Vector3.down, 0.6f, ~(1 << LayerMask.NameToLayer("Player")));
+
+				Debug.Log(onGround);
 
 				if (onGround)
 				{
@@ -50,7 +52,7 @@ public class Player : MonoBehaviour
 					airbornTime += Time.deltaTime;
 				}
 
-				velocity = new Vector2(state.ThumbSticks.Left.X * Time.deltaTime, 0f);
+				velocity = new Vector2(state.ThumbSticks.Left.X, 0f) * moveSpeed;
 
 				if (aButton.Down() && onGround)
 				{
@@ -61,7 +63,7 @@ public class Player : MonoBehaviour
 				{
 					jumpTime += Time.deltaTime;
 
-					velocity.y = (jumpStrength * Time.deltaTime) - airbornTime * airbornTime * gravity * Time.deltaTime;
+					velocity.y = jumpStrength - airbornTime * airbornTime * gravity;
 
 					if (jumpTime > 0.5f && onGround)
 					{
@@ -72,10 +74,15 @@ public class Player : MonoBehaviour
 
 				if (!onGround && !isJumping)
 				{
-					velocity.y -= airbornTime * airbornTime * gravity * Time.deltaTime;
+					velocity.y -= airbornTime * airbornTime * gravity;
 				}
 
-				controller.Move(velocity * moveSpeed);
+				if (onGround)
+				{
+					velocity.y -= gravity * Time.deltaTime;
+				}
+
+				controller.Move(velocity * Time.deltaTime);
 			}
 		}
     }

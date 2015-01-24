@@ -52,5 +52,10 @@ public class Projectile : MonoBehaviour
 			Debug.Log("Hit Player");
 			GameManager.Instance.LevelFailed();
 		}
+		else if (other.tag == "Terrain")
+		{
+			Debug.Log("Hit Terrain");
+			gameObject.GetComponent<PooledObject>().ReturnToPool();
+		}
 	}
 }
