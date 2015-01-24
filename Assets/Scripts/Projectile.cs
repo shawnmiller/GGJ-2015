@@ -2,6 +2,9 @@
 
 public class Projectile : MonoBehaviour
 {
+    public Texture2D normal;
+    public Texture2D blend;
+
 	private float moveSpeed;
     public float MoveSpeed
     {
@@ -70,6 +73,19 @@ public class Projectile : MonoBehaviour
         {
             canKill = true;
         }
+
+        Color color = renderer.material.color;
+        if (canKill)
+        {
+            renderer.material.mainTexture = normal;
+            color.a = 1f;
+        }
+        else
+        {
+            renderer.material.mainTexture = blend;
+            color.a = 0.3f;
+        }
+        renderer.material.color = color;
 	}
 
 	void OnTriggerEnter(Collider other)

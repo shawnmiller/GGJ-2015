@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 using System.Collections;
 using XInputDotNetPure;
+using TinyMessenger;
 
 public class ColorSwapper : MSingleton<ColorSwapper>
 {
@@ -71,7 +72,6 @@ public class ColorSwapper : MSingleton<ColorSwapper>
 
     void OnLevelWasLoaded(int level)
     {
-        Debug.Log("Called OnLevelWasLoaded");
         levelColors = GameObject.FindObjectOfType<LevelColors>();
         activeIndex = 0;
         SetActiveColor(0);

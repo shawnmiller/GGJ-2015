@@ -1,5 +1,11 @@
 ﻿using UnityEngine;
 
+public enum GameMode
+{
+    WeenieMode = 0,
+    ManMode = 1
+}
+
 public class GameManager : MSingleton<GameManager>
 {
     private const string LEVEL_KEY = "Starting Level";
@@ -9,6 +15,9 @@ public class GameManager : MSingleton<GameManager>
 	public GameObject pause;
 
     private int currentLevel;
+
+    GameMode mode;
+
 
     void Awake()
     {
@@ -25,7 +34,7 @@ public class GameManager : MSingleton<GameManager>
 		pause.SetActive(false);
     }
 
-    public void StartGame()
+    public void StartGame(int mode)
     {
         currentLevel = GetStartLevel();
 		menu.SetActive(false);
@@ -94,5 +103,13 @@ public class GameManager : MSingleton<GameManager>
     private void LoadLevel()
     {
         Application.LoadLevel(currentLevel);
+    }
+
+    void OnLevelWasLoaded(int level)
+    {
+        if (mode == GameMode.ManMode)
+        {
+            GameObject.Destroy(GameObject.Find("Weenie Mode Background"));
+        }
     }
 }
