@@ -18,10 +18,10 @@ public class GameManager : MSingleton<GameManager>
         DontDestroyOnLoad(postLevel);
         DontDestroyOnLoad(pause);
 
-        menu.enabled = true;
-        hud.enabled = false;
-        postLevel.enabled = false;
-        pause.enabled = false;
+        //menu.enabled = true;
+        //hud.enabled = false;
+        //postLevel.enabled = false;
+        //pause.enabled = false;
     }
 
     public void StartGame()

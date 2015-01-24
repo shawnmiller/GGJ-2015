@@ -5,62 +5,73 @@ using XInputDotNetPure;
 public class Player : MonoBehaviour
 {
 
-	private CharacterController controller;
-	private KeyWatcher aButton;
+    private CharacterController controller;
+    private KeyWatcher aButton;
 
-	private Vector2 velocity;
-	public float moveSpeed;
-	public float gravity;
+    private Vector2 velocity;
+    public float moveSpeed;
+    public float gravity;
 
-	private bool isJumping;
-	private bool onGround;
+    private bool isJumping;
+    private bool onGround;
 
-	private float jumpTime = 0f;
-	public float jumpStrength;
+    private float jumpTime = 0f;
+    public float jumpStrength;
 
-	void Start()
-	{
-		controller = GetComponent<CharacterController>();
-		aButton = new KeyWatcher();
-		velocity = Vector2.zero;
-	}
+    private float airbornTime;
 
-	void Update()
-	{
-		GamePadState state = GamePad.GetState(PlayerIndex.One);
-		aButton.Update(state.Buttons.A);
+    void Start()
+    {
+        controller = GetComponent<CharacterController>();
+        aButton = new KeyWatcher();
+        velocity = Vector2.zero;
+    }
 
-		onGround = Physics.Raycast(transform.position, Vector3.down, 1.2f, ~(1 << LayerMask.NameToLayer("Player")));
+    void Update()
+    {
+        GamePadState state = GamePad.GetState(PlayerIndex.One);
+        aButton.Update(state.Buttons.A);
 
-		if (state.IsConnected)
-		{
-			velocity = new Vector2(state.ThumbSticks.Left.X, 0f);
+        onGround = Physics.Raycast(transform.position, Vector3.down, 1.2f, ~(1 << LayerMask.NameToLayer("Player")));
 
-			if (aButton.Down() && onGround)
-			{
-				isJumping = true;
-			}
-		}
+        if (onGround)
+        {
+            airbornTime = 0f;
+        }
+        else
+        {
+            airbornTime += Time.deltaTime;
+        }
 
-		if (isJumping)
-		{
-			jumpTime += Time.deltaTime;
+        if (state.IsConnected)
+        {
+            velocity = new Vector2(state.ThumbSticks.Left.X * Time.deltaTime, 0f);
 
-			velocity.y = (jumpStrength * Time.deltaTime) - jumpTime * jumpTime * gravity * Time.deltaTime;
+            if (aButton.Down() && onGround)
+            {
+                isJumping = true;
+            }
+        }
 
-			if (jumpTime > 0.5f && controller.isGrounded)
-			{
-				isJumping = false;
-				jumpTime = 0f;
-			}
-		}
+        if (isJumping)
+        {
+            jumpTime += Time.deltaTime;
 
-		if (!onGround && !isJumping)
-		{
-			velocity.y -= gravity * Time.deltaTime;
-		}
+            velocity.y = (jumpStrength * Time.deltaTime) - airbornTime * airbornTime * gravity * Time.deltaTime;
 
-		controller.Move(velocity * moveSpeed * Time.deltaTime);
-	}
+            if (jumpTime > 0.5f && controller.isGrounded)
+            {
+                isJumping = false;
+                jumpTime = 0f;
+            }
+        }
+
+        if (!onGround && !isJumping)
+        {
+            velocity.y -= airbornTime * airbornTime * gravity * Time.deltaTime;
+        }
+
+        controller.Move(velocity * moveSpeed);
+    }
 
 }

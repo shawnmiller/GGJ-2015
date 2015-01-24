@@ -22,13 +22,14 @@ public class LevelColors : MonoBehaviour
             {
                 if (i < colors.Length)
                 {
-                    Image image = hud.transform.GetChild(i).GetComponent<Image>();
+                    Image image = hud.transform.GetChild(i).GetChild(0).GetComponent<Image>();
                     image.enabled = true;
                     image.color = colors[i];
+                    Debug.Log(colors[i]);
                 }
                 else
                 {
-                    Image image = hud.transform.GetChild(i).GetComponent<Image>();
+                    Image image = hud.transform.GetChild(i).GetChild(0).GetComponent<Image>();
                     image.enabled = false;
                 }
             }
