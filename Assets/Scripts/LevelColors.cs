@@ -3,9 +3,9 @@ using UnityEngine.UI;
 
 public class LevelColors : MonoBehaviour
 {
-    public static Color NONEXIST = Color.black;
+    public static ColorType NONEXIST = ColorType.Black;
 
-    public Color[] colors = new Color[4];
+    public ColorType[] colors = new ColorType[4];
 
     void Start()
     {
@@ -24,7 +24,7 @@ public class LevelColors : MonoBehaviour
                 {
                     Image image = hud.transform.GetChild(i).GetChild(0).GetComponent<Image>();
                     image.enabled = true;
-                    image.color = colors[i];
+                    image.color = PickColor.Get(colors[i]);
                     Debug.Log(colors[i]);
                 }
                 else
@@ -36,7 +36,7 @@ public class LevelColors : MonoBehaviour
         }
     }
 
-    public Color GetColor(int color)
+    public ColorType GetColor(int color)
     {
         if (color >= colors.Length)
         {

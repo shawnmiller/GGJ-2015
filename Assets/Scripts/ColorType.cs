@@ -2,5 +2,8 @@
 {
 	Red,
 	Green,
-	Blue
+	Blue,
+	Purple,
+	Orange,
+	Black
 }
