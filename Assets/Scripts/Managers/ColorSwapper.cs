@@ -2,14 +2,13 @@
 using UnityEngine.UI;
 using System.Collections;
 using XInputDotNetPure;
-using TinyMessenger;
 
 public class ColorSwapper : MSingleton<ColorSwapper>
 {
     private static Color DISABLED = new Color(1f, 1f, 1f, 0f);
     private static Color HIGHLIGHT = new Color(1f, 1f, 1f, 0.2f);
     private LevelColors levelColors;
-    private ColorType activeColor;
+    //private ColorType activeColor;
     private Transform hud;
 
     private int activeIndex;
@@ -65,7 +64,7 @@ public class ColorSwapper : MSingleton<ColorSwapper>
 
         if (cType != LevelColors.NONEXIST)
         {
-            activeColor = cType;
+            //activeColor = cType;
 
 			if (activeIndex != -1)
 			{

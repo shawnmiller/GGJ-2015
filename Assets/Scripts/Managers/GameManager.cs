@@ -43,6 +43,7 @@ public class GameManager : MSingleton<GameManager>
 
     public void StartGame(int mode)
     {
+        this.mode = (GameMode)mode;
         currentLevel = GetStartLevel();
 		menu.SetActive(false);
 		hud.SetActive(true);
