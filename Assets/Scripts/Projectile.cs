@@ -2,13 +2,13 @@
 
 public class Projectile : MonoBehaviour
 {
-	//[HideInInspector]
+	[HideInInspector]
 	public float moveSpeed;
 
-	//[HideInInspector]
+	[HideInInspector]
 	public Vector2 velocity;
 
-	//[HideInInspector]
+	[HideInInspector]
 	public ColorType colorType;
 
     public bool permanent;
@@ -25,6 +25,15 @@ public class Projectile : MonoBehaviour
 		if (!permanent && !renderer.isVisible)
 		{
 			gameObject.GetComponent<PooledObject>().ReturnToPool();
+		}
+	}
+
+	void OnTriggerEnter(Collider other)
+	{
+		if (other.tag == "Player")
+		{
+			Debug.Log("Hit player");
+			//GameManager.Instance.LevelFailed();
 		}
 	}
 }
