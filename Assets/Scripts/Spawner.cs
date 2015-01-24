@@ -10,6 +10,7 @@ public class Spawner : MonoBehaviour
 	public Vector2 projectileDirection;
 	public float projectileSpeed;
 	public ColorType projectileColor;
+    public bool projectileCollides;
 
 	private static ObjectPool pool;
 
@@ -46,6 +47,7 @@ public class Spawner : MonoBehaviour
 			proj.velocity = projectileDirection;
 			proj.moveSpeed = projectileSpeed;
 			proj.colorType = projectileColor;
+            proj.collidable = projectileCollides;
 		}
 	}
 }

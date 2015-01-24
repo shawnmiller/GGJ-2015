@@ -12,6 +12,7 @@ public class Projectile : MonoBehaviour
 	public ColorType colorType;
 
     public bool permanent;
+    public bool collidable;
 
 	void Start()
 	{
@@ -27,4 +28,19 @@ public class Projectile : MonoBehaviour
 			gameObject.GetComponent<PooledObject>().ReturnToPool();
 		}
 	}
+
+    void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("Start check");
+        Debug.Log(other.name);
+        Debug.Log(transform.position);
+        if(other.tag == "Player"){
+            GameManager.Instance.LevelFailed();
+        }
+        else if(collidable && other.tag == "Terrain" && !permanent){
+            Debug.Log("Success");
+            gameObject.GetComponent<PooledObject>().ReturnToPool();
+        }
+
+    }
 }
