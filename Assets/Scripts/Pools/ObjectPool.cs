@@ -17,7 +17,7 @@ public class ObjectPool
 		{
 			for (int i = 0; i < capacity; ++i)
 			{
-				CreateNewInstance();
+				CreateNewInstance(Vector2.zero);
 			}
 		}
 	}
@@ -26,7 +26,7 @@ public class ObjectPool
 	{
 		if (pool.Count == 0)
 		{
-			CreateNewInstance();
+			CreateNewInstance(pos);
 		}
 
 		GameObject instance = pool.Pop();
@@ -42,9 +42,10 @@ public class ObjectPool
 		Debug.Log("Object returned to pool: " + obj.name);
 	}
 
-	public void CreateNewInstance()
+	public void CreateNewInstance(Vector2 pos)
 	{
 		GameObject instance = (GameObject)GameObject.Instantiate(prefab);
+		instance.transform.position = pos;
 		PooledObject pObj = instance.GetComponent<PooledObject>();
 
 		if (!pObj)

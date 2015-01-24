@@ -3,30 +3,33 @@
 public class GameManager : MSingleton<GameManager>
 {
     private const string LEVEL_KEY = "Starting Level";
-    public Canvas menu;
-    public Canvas hud;
-    public Canvas postLevel;
-    public Canvas pause;
+    public GameObject menu;
+	public GameObject hud;
+	public GameObject postLevel;
+	public GameObject pause;
 
     private int currentLevel;
 
     void Awake()
     {
+		PlayerPrefs.DeleteAll();
         DontDestroyOnLoad(this);
         DontDestroyOnLoad(menu);
         DontDestroyOnLoad(hud);
         DontDestroyOnLoad(postLevel);
         DontDestroyOnLoad(pause);
 
-        //menu.enabled = true;
-        //hud.enabled = false;
-        //postLevel.enabled = false;
-        //pause.enabled = false;
+        menu.SetActive(true);
+		hud.SetActive(false);
+		postLevel.SetActive(false);
+		pause.SetActive(false);
     }
 
     public void StartGame()
     {
         currentLevel = GetStartLevel();
+		menu.SetActive(false);
+		hud.SetActive(true);
     }
 
     public void QuitGame()
@@ -41,13 +44,13 @@ public class GameManager : MSingleton<GameManager>
     public void Pause()
     {
         Time.timeScale = 0f;
-        pause.enabled = true;
+        pause.SetActive(true);
     }
 
     public void Unpause()
     {
         Time.timeScale = 1f;
-        pause.enabled = false;
+        pause.SetActive(false);
     }
 
     public void LevelComplete()
@@ -55,8 +58,8 @@ public class GameManager : MSingleton<GameManager>
         currentLevel++;
         PlayerPrefs.SetInt(LEVEL_KEY, currentLevel);
 
-        hud.enabled = false;
-        postLevel.enabled = true;
+        hud.SetActive(false);
+        postLevel.SetActive(true);
     }
 
     public void LevelFailed()
@@ -66,11 +69,13 @@ public class GameManager : MSingleton<GameManager>
 
     public void AdvanceLevel()
     {
+		postLevel.SetActive(false);
         LoadLevel();
     }
 
     public void Back()
     {
+		hud.SetActive(false);
         Application.LoadLevel(0);
     }
 

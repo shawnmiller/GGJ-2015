@@ -4,4 +4,20 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+  - enabled: 1
+    path: Assets/Scenes/Tutorials/001_Goal.unity
+  - enabled: 1
+    path: Assets/Scenes/Tutorials/002_Static Block & Jump.unity
+  - enabled: 1
+    path: Assets/Scenes/Tutorials/003_Stationary Color Block.unity
+  - enabled: 1
+    path: Assets/Scenes/Tutorials/004_Moving Colored Block.unity
+  - enabled: 1
+    path: Assets/Scenes/Tutorials/005_Multiple Colored Blocks.unity
+  - enabled: 1
+    path: Assets/Scenes/Tutorials/006_Non Colliding Colored Blocks.unity
+  - enabled: 1
+    path: Assets/Scenes/Tutorials/007_Color Safety.unity

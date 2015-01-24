@@ -22,12 +22,10 @@ public class Spawner : MonoBehaviour
 			error = true;
 			Debug.LogError("Spawner with a missing spawn object: " + name);
 		}
-		else
+
+		if (pool == null)
 		{
-			if (pool == null)
-			{
-				pool = new ObjectPool(projectile, 10, true);
-			}
+			pool = new ObjectPool(projectile, 10, true);
 		}
 
 		if (error)
