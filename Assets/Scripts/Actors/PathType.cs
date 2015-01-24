@@ -2,5 +2,5 @@
 {
     Linear,
     Circular,
-    Squareular
+    Squarical
 }

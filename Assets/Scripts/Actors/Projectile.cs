@@ -1,7 +1,10 @@
 ﻿using UnityEngine;
+using System;
 
 public class Projectile : MonoBehaviour
 {
+    private Action updateMethod;
+
     public Texture2D normal;
     public Texture2D blend;
 
@@ -56,7 +59,13 @@ public class Projectile : MonoBehaviour
     public PathType PathType
     {
         get { return pathType; }
-        set { pathType = value; }
+        set
+        {
+            pathType = value;
+            if (pathType == PathType.Linear) { updateMethod = MoveLinear; }
+            else if (pathType == PathType.Circular) { updateMethod = MoveCircular; }
+            else if (pathType == PathType.Squarical) { updateMethod = MoveSquarical; }
+        }
     }
 
     private float centerOffset;
@@ -70,13 +79,57 @@ public class Projectile : MonoBehaviour
 
 	void Update()
 	{
-		transform.position += transform.TransformDirection(velocity) * moveSpeed * Time.deltaTime;
+        updateMethod();
+        CheckKillStatus();
+	}
 
-		if (!permanent && !renderer.isVisible)
+	void OnTriggerStay(Collider other)
+	{
+		if (canKill && other.tag == "Player")
 		{
+			Debug.Log("Hit Player");
+			GameManager.Instance.LevelFailed();
+		}
+		else if (other.tag == "Terrain" && destroyOnCollide)
+		{
+			Debug.Log("Hit Terrain");
 			gameObject.GetComponent<PooledObject>().ReturnToPool();
 		}
+	}
 
+    public void Apply(ProjectileInfo info)
+    {
+        this.velocity = info.direction;
+        this.moveSpeed = info.speed;
+        this.Scaler = info.scale;
+        this.ColorType = info.color;
+        this.destroyOnCollide = info.destroyOnCollide;
+        this.permanent = info.permanent;
+        this.pathType = info.path;
+    }
+
+    private void MoveLinear()
+    {
+        transform.position += transform.TransformDirection(velocity) * moveSpeed * Time.deltaTime;
+
+        if (!permanent && !renderer.isVisible)
+        {
+            gameObject.GetComponent<PooledObject>().ReturnToPool();
+        }
+    }
+
+    private void MoveCircular()
+    {
+
+    }
+
+    private void MoveSquarical()
+    {
+
+    }
+
+    private void CheckKillStatus()
+    {
         RaycastHit hit;
         if (Physics.Raycast(transform.position, Vector3.forward, out hit, 100f, 1 << LayerMask.NameToLayer("Background")))
         {
@@ -107,30 +160,5 @@ public class Projectile : MonoBehaviour
             color.a = 0.3f;
         }
         renderer.material.color = color;
-	}
-
-	void OnTriggerStay(Collider other)
-	{
-		if (canKill && other.tag == "Player")
-		{
-			Debug.Log("Hit Player");
-			GameManager.Instance.LevelFailed();
-		}
-		else if (other.tag == "Terrain" && destroyOnCollide)
-		{
-			Debug.Log("Hit Terrain");
-			gameObject.GetComponent<PooledObject>().ReturnToPool();
-		}
-	}
-
-    public void Apply(ProjectileInfo info)
-    {
-        this.velocity = info.direction;
-        this.moveSpeed = info.speed;
-        this.Scaler = info.scale;
-        this.ColorType = info.color;
-        this.destroyOnCollide = info.destroyOnCollide;
-        this.permanent = info.permanent;
-        this.pathType = info.path;
     }
 }
