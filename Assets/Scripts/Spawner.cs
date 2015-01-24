@@ -9,6 +9,7 @@ public class Spawner : MonoBehaviour
 
 	public Vector2 projectileDirection;
 	public float projectileSpeed;
+	public Vector3 projectileScale;
 	public ColorType projectileColor;
 	public bool permanant;
 	public bool destroyOnCollide = true;
@@ -65,6 +66,7 @@ public class Spawner : MonoBehaviour
 		Projectile proj = obj.GetComponent<Projectile>();
 		proj.Velocity = projectileDirection;
 		proj.MoveSpeed = projectileSpeed;
+		proj.Scaler = projectileScale;
 		proj.ColorType = projectileColor;
 		proj.Permanent = permanant;
 		proj.DestroyOnCollide = destroyOnCollide;

@@ -86,8 +86,8 @@ GameObject:
   - 65: {fileID: 77387112}
   - 23: {fileID: 77387111}
   - 114: {fileID: 77387110}
-  m_Layer: 0
-  m_Name: BackGround
+  m_Layer: 9
+  m_Name: Weenie Mode Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -67,20 +67,23 @@ public class ColorSwapper : MSingleton<ColorSwapper>
         {
             activeColor = cType;
 
-            Image previous = hud.GetChild(activeIndex).GetComponent<Image>();
-            previous.color = DISABLED;
+			if (activeIndex != -1)
+			{
+				Image previous = hud.GetChild(activeIndex).GetComponent<Image>();
+				previous.color = DISABLED;
+			}
 
-            Image current = hud.GetChild(color).GetComponent<Image>();
-            current.color = HIGHLIGHT;
-
-            activeIndex = color;
+			Image current = hud.GetChild(color).GetComponent<Image>();
+			current.color = HIGHLIGHT;
         }
+
+		activeIndex = color;
     }
 
     void OnLevelWasLoaded(int level)
     {
         levelColors = GameObject.FindObjectOfType<LevelColors>();
-        activeIndex = 0;
-        SetActiveColor(0);
+        activeIndex = -1;
+        SetActiveColor(-1);
     }
 }

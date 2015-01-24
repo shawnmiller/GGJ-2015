@@ -45,6 +45,13 @@ public class Projectile : MonoBehaviour
 		set { destroyOnCollide = value; }
 	}
 
+	public Vector3 Scaler
+	{
+		get { return transform.localScale; }
+		set { if (value == Vector3.zero) { transform.localScale = Vector3.one; } 
+			else { transform.localScale = new Vector3(value.x, value.y, 0.1f); } }
+	}
+
     private bool canKill;
 
 	void Update()
@@ -88,7 +95,7 @@ public class Projectile : MonoBehaviour
         renderer.material.color = color;
 	}
 
-	void OnTriggerEnter(Collider other)
+	void OnTriggerStay(Collider other)
 	{
 		if (canKill && other.tag == "Player")
 		{

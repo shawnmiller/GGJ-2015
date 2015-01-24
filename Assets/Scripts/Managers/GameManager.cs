@@ -88,12 +88,17 @@ public class GameManager : MSingleton<GameManager>
     public void AdvanceLevel()
     {
 		postLevel.SetActive(false);
+		hud.SetActive(true);
         LoadLevel();
     }
 
     public void Back()
     {
 		hud.SetActive(false);
+		postLevel.SetActive(false);
+		menu.SetActive(true);
+		EventSystem eventSys = GameObject.FindObjectOfType<EventSystem>();
+		eventSys.SetSelectedGameObject(menu.transform.GetChild(0).GetChild(0).gameObject);
         Application.LoadLevel(0);
     }
 

@@ -41,8 +41,6 @@ public class Player : MonoBehaviour
 			{
 				onGround = controller.isGrounded;//Physics.Raycast(transform.position, Vector3.down, 0.6f, ~(1 << LayerMask.NameToLayer("Player")));
 
-				Debug.Log(onGround);
-
 				if (onGround)
 				{
 					airbornTime = 0f;
