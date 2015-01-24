@@ -42,6 +42,8 @@ public class Projectile : MonoBehaviour
 		set { destroyOnCollide = value; }
 	}
 
+    private bool canKill;
+
 	void Update()
 	{
 		transform.position += transform.TransformDirection(velocity) * moveSpeed * Time.deltaTime;
@@ -50,11 +52,29 @@ public class Projectile : MonoBehaviour
 		{
 			gameObject.GetComponent<PooledObject>().ReturnToPool();
 		}
+
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, Vector3.forward, out hit, 100f, 1 << LayerMask.NameToLayer("Background")))
+        {
+            ActiveColorType aCType = hit.collider.GetComponent<ActiveColorType>();
+            if (aCType && aCType.type == colorType)
+            {
+                canKill = false;
+            }
+            else
+            {
+                canKill = true;
+            }
+        }
+        else
+        {
+            canKill = true;
+        }
 	}
 
 	void OnTriggerEnter(Collider other)
 	{
-		if (other.tag == "Player")
+		if (canKill && other.tag == "Player")
 		{
 			Debug.Log("Hit Player");
 			GameManager.Instance.LevelFailed();
