@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.EventSystems;
 
 public enum GameMode
 {
@@ -75,6 +76,8 @@ public class GameManager : MSingleton<GameManager>
 
         hud.SetActive(false);
         postLevel.SetActive(true);
+        EventSystem eventSys = GameObject.FindObjectOfType<EventSystem>();
+        eventSys.SetSelectedGameObject(postLevel.transform.GetChild(0).GetChild(0).gameObject);
     }
 
     public void LevelFailed()
