@@ -5,7 +5,7 @@ using XInputDotNetPure;
 public class ColorSwapper : MSingleton<ColorSwapper>
 {
     private LevelColors levelColors;
-    private Color active;
+    private Color activeColor;
 
     private int activeIndex;
 
@@ -51,7 +51,7 @@ public class ColorSwapper : MSingleton<ColorSwapper>
         Color temp = levelColors.GetColor(color);
         if (temp != LevelColors.NONEXIST)
         {
-            active = temp;
+            activeColor = temp;
         }
     }
 
