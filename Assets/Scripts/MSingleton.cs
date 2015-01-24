@@ -3,7 +3,7 @@
 public class MSingleton<T> : MonoBehaviour
     where T : MonoBehaviour
 {
-    public T Instance
+    public static T Instance
     {
         get 
         {
@@ -20,5 +20,5 @@ public class MSingleton<T> : MonoBehaviour
             return instance;
         }
     }
-    private T instance;
+    private static T instance;
 }
