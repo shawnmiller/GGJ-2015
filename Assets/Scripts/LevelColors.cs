@@ -3,6 +3,8 @@ using UnityEngine.UI;
 
 public class LevelColors : MonoBehaviour
 {
+    public static Color NONEXIST = Color.black;
+
     public Color[] colors = new Color[4];
 
     void Start()
@@ -30,6 +32,18 @@ public class LevelColors : MonoBehaviour
                     image.enabled = false;
                 }
             }
+        }
+    }
+
+    public Color GetColor(int color)
+    {
+        if (color >= colors.Length)
+        {
+            return NONEXIST;
+        }
+        else
+        {
+            return colors[color];
         }
     }
 }
