@@ -2,7 +2,6 @@
 
 public class Projectile : MonoBehaviour
 {
-	//[HideInInspector]
 	private float moveSpeed;
     public float MoveSpeed
     {
@@ -10,7 +9,6 @@ public class Projectile : MonoBehaviour
         set { moveSpeed = value; }
     }
 
-	//[HideInInspector]
     private Vector2 velocity;
     public Vector2 Velocity
     {
@@ -18,7 +16,6 @@ public class Projectile : MonoBehaviour
         set { velocity = value; }
     }
 
-	//[HideInInspector]
     private ColorType colorType;
     public ColorType ColorType
     {
@@ -31,18 +28,12 @@ public class Projectile : MonoBehaviour
         }
     }
 
-	//[HideInInspector]
     private bool permanent;
     public bool Permanent
     {
         get { return permanent; }
         set { permanent = value; }
     }
-
-    //void Start()
-    //{
-    //    renderer.material.color = PickColor.Get(colorType);
-    //}
 
 	void Update()
 	{
@@ -59,7 +50,7 @@ public class Projectile : MonoBehaviour
 		if (other.tag == "Player")
 		{
 			Debug.Log("Hit Player");
-			//GameManager.Instance.LevelFailed();
+			GameManager.Instance.LevelFailed();
 		}
 	}
 }

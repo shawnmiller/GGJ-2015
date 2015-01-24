@@ -12,7 +12,7 @@ public class GameManager : MSingleton<GameManager>
 
     void Awake()
     {
-		PlayerPrefs.DeleteAll();
+		PlayerPrefs.DeleteAll(); // Temp delete thissssss
         DontDestroyOnLoad(this);
         DontDestroyOnLoad(menu);
         DontDestroyOnLoad(hud);
