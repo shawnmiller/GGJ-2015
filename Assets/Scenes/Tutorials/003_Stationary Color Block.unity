@@ -651,6 +651,10 @@ Prefab:
       propertyPath: destroyOnCollide
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11446262, guid: 765e404041ebf02418e819369fad3c10, type: 2}
+      propertyPath: info.permanent
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 765e404041ebf02418e819369fad3c10, type: 2}
   m_RootGameObject: {fileID: 1766929407}
@@ -779,7 +783,7 @@ MonoBehaviour:
     centerOffset: 0
     startPoint: 0
     destroyOnCollide: 0
-    permanent: 0
+    permanent: 1
   preLoad: 1
 --- !u!4 &1766929409
 Transform:
