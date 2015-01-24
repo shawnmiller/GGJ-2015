@@ -2,5 +2,15 @@
 
 public class ActiveColorType : MonoBehaviour
 {
-    public ColorType type;
+    [SerializeField]
+    private ColorType type;
+    public ColorType Type
+    {
+        get { return type; }
+        set
+        {
+            type = value;
+            renderer.material.color = PickColor.Get(type);
+        }
+    }
 }

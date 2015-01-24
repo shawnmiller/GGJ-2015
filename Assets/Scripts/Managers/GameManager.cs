@@ -16,7 +16,13 @@ public class GameManager : MSingleton<GameManager>
 
     private int currentLevel;
 
-    GameMode mode;
+    private GameMode mode;
+    public GameMode Mode
+    { get { return mode; } }
+
+    private GameObject background;
+    public GameObject Background
+    { get { return background; } }
 
 
     void Awake()
@@ -107,9 +113,11 @@ public class GameManager : MSingleton<GameManager>
 
     void OnLevelWasLoaded(int level)
     {
+        if (level == 0) { return; }
+        background = GameObject.Find("Weenie Mode Background");
         if (mode == GameMode.ManMode)
         {
-            GameObject.Destroy(GameObject.Find("Weenie Mode Background"));
+            GameObject.Destroy(background);
         }
     }
 }

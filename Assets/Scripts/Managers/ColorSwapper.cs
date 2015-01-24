@@ -45,24 +45,31 @@ public class ColorSwapper : MSingleton<ColorSwapper>
         lTrigger.Update(state.Triggers.Left);
         rTrigger.Update(state.Triggers.Right);
 
-        if (lBumper.Down()) { SetActiveColor(0); }
-        if (rBumper.Down()) { SetActiveColor(1); }
-        if (lTrigger.Down()) { SetActiveColor(2); }
-        if (rTrigger.Down()) { SetActiveColor(3); }
+        if (lBumper.Pressed()) { SetActiveColor(0); }
+        else if (rBumper.Pressed()) { SetActiveColor(1); }
+        else if (lTrigger.Pressed()) { SetActiveColor(2); }
+        else if (rTrigger.Pressed()) { SetActiveColor(3); }
+        else { SetActiveColor(-1); }
     }
 
     public void SetActiveColor(int color)
     {
         if (color == activeIndex || !levelColors) { return; }
-        
-        ColorType temp = levelColors.GetColor(color);
-        if (temp != LevelColors.NONEXIST)
+
+        ColorType cType = levelColors.GetColor(color);
+
+        if (GameManager.Instance.Mode == GameMode.WeenieMode)
         {
-            activeColor = temp;
+            GameManager.Instance.Background.GetComponent<ActiveColorType>().Type = cType;
+        }
+
+        if (cType != LevelColors.NONEXIST)
+        {
+            activeColor = cType;
 
             Image previous = hud.GetChild(activeIndex).GetComponent<Image>();
             previous.color = DISABLED;
-            
+
             Image current = hud.GetChild(color).GetComponent<Image>();
             current.color = HIGHLIGHT;
 

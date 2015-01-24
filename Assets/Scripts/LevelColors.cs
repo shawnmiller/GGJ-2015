@@ -38,7 +38,7 @@ public class LevelColors : MonoBehaviour
 
     public ColorType GetColor(int color)
     {
-        if (color >= colors.Length)
+        if (color < 0 || color >= colors.Length)
         {
             return NONEXIST;
         }

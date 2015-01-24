@@ -60,7 +60,7 @@ public class Projectile : MonoBehaviour
         if (Physics.Raycast(transform.position, Vector3.forward, out hit, 100f, 1 << LayerMask.NameToLayer("Background")))
         {
             ActiveColorType aCType = hit.collider.GetComponent<ActiveColorType>();
-            if (aCType && aCType.type == colorType)
+            if (aCType && aCType.Type == colorType)
             {
                 canKill = false;
             }
