@@ -55,6 +55,11 @@ public class Player : MonoBehaviour
 			}
 		}
 
+		if (!onGround && !isJumping)
+		{
+			velocity.y -= gravity * Time.deltaTime;
+		}
+
 		controller.Move(velocity * moveSpeed * Time.deltaTime);
 	}
 
