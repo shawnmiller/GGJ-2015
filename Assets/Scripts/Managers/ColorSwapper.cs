@@ -1,11 +1,15 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 using XInputDotNetPure;
 
 public class ColorSwapper : MSingleton<ColorSwapper>
 {
+    private static Color DISABLED = new Color(1f, 1f, 1f, 0f);
+    private static Color HIGHLIGHT = new Color(1f, 1f, 1f, 0.2f);
     private LevelColors levelColors;
     private Color activeColor;
+    private Transform hud;
 
     private int activeIndex;
 
@@ -23,6 +27,8 @@ public class ColorSwapper : MSingleton<ColorSwapper>
     void Start()
     {
         activeIndex = 0;
+
+        hud = GameManager.Instance.hud.transform;
 
         lBumper = new KeyWatcher();
         rBumper = new KeyWatcher();
@@ -52,11 +58,20 @@ public class ColorSwapper : MSingleton<ColorSwapper>
         if (temp != LevelColors.NONEXIST)
         {
             activeColor = temp;
+
+            Image previous = hud.GetChild(activeIndex).GetComponent<Image>();
+            previous.color = DISABLED;
+            
+            Image current = hud.GetChild(color).GetComponent<Image>();
+            current.color = HIGHLIGHT;
+
+            activeIndex = color;
         }
     }
 
     void OnLevelWasLoaded(int level)
     {
+        Debug.Log("Called OnLevelWasLoaded");
         levelColors = GameObject.FindObjectOfType<LevelColors>();
         activeIndex = 0;
         SetActiveColor(0);
