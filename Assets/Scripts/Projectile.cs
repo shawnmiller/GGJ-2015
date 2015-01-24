@@ -2,16 +2,17 @@
 
 public class Projectile : MonoBehaviour
 {
-	[HideInInspector]
+	//[HideInInspector]
 	public float moveSpeed;
 
-	[HideInInspector]
+	//[HideInInspector]
 	public Vector2 velocity;
 
-	[HideInInspector]
+	//[HideInInspector]
 	public ColorType colorType;
 
     public bool permanent;
+    public bool collidable;
 
 	void Start()
 	{
@@ -28,12 +29,18 @@ public class Projectile : MonoBehaviour
 		}
 	}
 
-	void OnTriggerEnter(Collider other)
-	{
-		if (other.tag == "Player")
-		{
-			Debug.Log("Hit player");
-			//GameManager.Instance.LevelFailed();
-		}
-	}
+    void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("Start check");
+        Debug.Log(other.name);
+        Debug.Log(transform.position);
+        if(other.tag == "Player"){
+            GameManager.Instance.LevelFailed();
+        }
+        else if(collidable && other.tag == "Terrain" && !permanent){
+            Debug.Log("Success");
+            gameObject.GetComponent<PooledObject>().ReturnToPool();
+        }
+
+    }
 }
