@@ -12,8 +12,6 @@ public class Spawner : MonoBehaviour
 	public ColorType projectileColor;
 	public bool permanant;
 
-	private static ObjectPool pool;
-
 	void Start()
 	{
 		bool error = false;
@@ -21,11 +19,6 @@ public class Spawner : MonoBehaviour
 		{
 			error = true;
 			Debug.LogError("Spawner with a missing spawn object: " + name);
-		}
-
-		if (pool == null)
-		{
-			pool = new ObjectPool(projectile, 10, true);
 		}
 
 		if (error)
@@ -39,7 +32,7 @@ public class Spawner : MonoBehaviour
 			projectileDirection = Vector2.zero;
 			projectileSpeed = 0f;
 
-			GameObject obj = pool.Get(transform.position);
+			GameObject obj = ProjectileManager.Instance.Spawn(transform.position);
 			Projectile proj = obj.GetComponent<Projectile>();
 			proj.velocity = projectileDirection;
 			proj.moveSpeed = projectileSpeed;
@@ -56,7 +49,7 @@ public class Spawner : MonoBehaviour
 			if (currentTime >= spawnTime)
 			{
 				currentTime -= spawnTime;
-				GameObject obj = pool.Get(transform.position);
+				GameObject obj = ProjectileManager.Instance.Spawn(transform.position);
 				Projectile proj = obj.GetComponent<Projectile>();
 				proj.velocity = projectileDirection;
 				proj.moveSpeed = projectileSpeed;

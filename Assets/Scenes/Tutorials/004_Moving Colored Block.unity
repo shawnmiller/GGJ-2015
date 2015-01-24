@@ -81,6 +81,10 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 11402682, guid: 65b009ff99baf114da2a86f08d7f5e71, type: 2}
+      propertyPath: colors.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 402682, guid: 65b009ff99baf114da2a86f08d7f5e71, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -554,11 +558,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e86f4c3d5d34f94eb8d24d3c8e613bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colors:
-  - {r: 1, g: 0, b: 0, a: 1}
-  - {r: 0, g: 1, b: 0, a: 1}
-  - {r: 0, g: 0, b: 1, a: 1}
-  - {r: 0, g: 1, b: 1, a: 1}
+  colors: 00000000
 --- !u!4 &996572564
 Transform:
   m_ObjectHideFlags: 0

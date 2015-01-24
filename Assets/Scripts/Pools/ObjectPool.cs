@@ -45,6 +45,7 @@ public class ObjectPool
 	public void CreateNewInstance(Vector2 pos)
 	{
 		GameObject instance = (GameObject)GameObject.Instantiate(prefab);
+		MonoBehaviour.DontDestroyOnLoad(instance);
 		instance.transform.position = pos;
 		PooledObject pObj = instance.GetComponent<PooledObject>();
 
