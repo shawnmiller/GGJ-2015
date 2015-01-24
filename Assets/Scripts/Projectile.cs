@@ -11,8 +11,7 @@ public class Projectile : MonoBehaviour
 	//[HideInInspector]
 	public ColorType colorType;
 
-    [SerializeField]
-    private float test;
+    public bool permanent;
 
 	void Start()
 	{
@@ -23,7 +22,7 @@ public class Projectile : MonoBehaviour
 	{
 		transform.position += transform.TransformDirection(velocity) * moveSpeed * Time.deltaTime;
 
-		if (!renderer.isVisible)
+		if (!permanent && !renderer.isVisible)
 		{
 			gameObject.GetComponent<PooledObject>().ReturnToPool();
 		}
