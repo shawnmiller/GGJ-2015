@@ -2,14 +2,17 @@
 
 public class Projectile : MonoBehaviour
 {
-	[HideInInspector]
+	//[HideInInspector]
 	public float moveSpeed;
 
-	[HideInInspector]
+	//[HideInInspector]
 	public Vector2 velocity;
 
-	[HideInInspector]
+	//[HideInInspector]
 	public ColorType colorType;
+
+    [SerializeField]
+    private float test;
 
 	void Start()
 	{
