@@ -10,6 +10,7 @@ public class Spawner : MonoBehaviour
 	public Vector2 projectileDirection;
 	public float projectileSpeed;
 	public ColorType projectileColor;
+	public bool permanant;
 
 	private static ObjectPool pool;
 
@@ -33,19 +34,37 @@ public class Spawner : MonoBehaviour
 		{
 			Debug.Break();
 		}
-	}
 
-	void Update()
-	{
-		currentTime += Time.deltaTime;
-		if (currentTime >= spawnTime)
+		if (permanant)
 		{
-			currentTime -= spawnTime;
+			spawnTime = -1f;
+			projectileDirection = Vector2.zero;
+			projectileSpeed = 0f;
+
 			GameObject obj = pool.Get(transform.position);
 			Projectile proj = obj.GetComponent<Projectile>();
 			proj.velocity = projectileDirection;
 			proj.moveSpeed = projectileSpeed;
 			proj.colorType = projectileColor;
+			proj.permanent = permanant;
+		}
+	}
+
+	void Update()
+	{
+		if (!permanant)
+		{
+			currentTime += Time.deltaTime;
+			if (currentTime >= spawnTime)
+			{
+				currentTime -= spawnTime;
+				GameObject obj = pool.Get(transform.position);
+				Projectile proj = obj.GetComponent<Projectile>();
+				proj.velocity = projectileDirection;
+				proj.moveSpeed = projectileSpeed;
+				proj.colorType = projectileColor;
+				proj.permanent = permanant;
+			}
 		}
 	}
 }
