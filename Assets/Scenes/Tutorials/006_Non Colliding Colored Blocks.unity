@@ -323,7 +323,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 397526622}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e86f4c3d5d34f94eb8d24d3c8e613bd, type: 3}
+  m_Script: {fileID: 11500000, guid: deb94f83749d1d84b93e889c68c99feb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   colors: 000000000200000001000000
@@ -419,13 +419,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 543834930}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1372a14883e6b4a46a24641a3d89522a, type: 3}
+  m_Script: {fileID: 11500000, guid: c58f411d0b236ac4bb01d31ded56cb68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 6
   gravity: 10
-  jumpStrength: 5
-  canMove: 0
+  jumpStrength: 6
+  canMove: 1
 --- !u!143 &543834933
 CharacterController:
   m_ObjectHideFlags: 0
@@ -655,17 +655,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 1140258194}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7598a8fe5f442584d97b666b14c9439e, type: 3}
+  m_Script: {fileID: 11500000, guid: 7217e95f755afd042a2f4edbd4617bcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 148376, guid: feaa94f28bd0a7949ba869b4c9562f0f, type: 2}
+  projectile: {fileID: 0}
   spawnTime: 3
-  projectileDirection: {x: -1, y: 0}
-  projectileSpeed: 2
-  projectileScale: {x: 3, y: 1, z: 0}
-  projectileColor: 1
-  permanant: 0
-  destroyOnCollide: 0
+  info:
+    direction: {x: 0, y: 0}
+    speed: 0
+    scale: {x: 0, y: 0, z: 0}
+    color: 0
+    path: 0
+    centerOffset: 0
+    startPoint: 0
+    destroyOnCollide: 0
+    permanent: 0
   preLoad: 1
 --- !u!4 &1140258196
 Transform:
@@ -932,17 +936,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 1462874813}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7598a8fe5f442584d97b666b14c9439e, type: 3}
+  m_Script: {fileID: 11500000, guid: 7217e95f755afd042a2f4edbd4617bcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 148376, guid: feaa94f28bd0a7949ba869b4c9562f0f, type: 2}
+  projectile: {fileID: 0}
   spawnTime: 2
-  projectileDirection: {x: 0, y: -1}
-  projectileSpeed: 2
-  projectileScale: {x: 0, y: 0, z: 0}
-  projectileColor: 2
-  permanant: 0
-  destroyOnCollide: 1
+  info:
+    direction: {x: 0, y: 0}
+    speed: 0
+    scale: {x: 0, y: 0, z: 0}
+    color: 0
+    path: 0
+    centerOffset: 0
+    startPoint: 0
+    destroyOnCollide: 0
+    permanent: 0
   preLoad: 1
 --- !u!4 &1462874815
 Transform:
@@ -1226,7 +1234,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1606419915}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f8a55708c420c54c9518464a1515167, type: 3}
+  m_Script: {fileID: 11500000, guid: 617b069e62245f24db387c13e5162bab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &1685754851
@@ -1266,7 +1274,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 422412, guid: 9913ed3615cf0ef46be00c7ed8de882b, type: 2}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9913ed3615cf0ef46be00c7ed8de882b, type: 2}
@@ -1379,13 +1387,13 @@ GameObject:
 --- !u!114 &1717705871
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11407368, guid: 6e5f52c36b900f2428ed985594109d8e,
+  m_PrefabParentObject: {fileID: 11471024, guid: 6e5f52c36b900f2428ed985594109d8e,
     type: 2}
   m_PrefabInternal: {fileID: 1705845139}
   m_GameObject: {fileID: 1717705870}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6158099c7d1485142a4b5beb043bce4c, type: 3}
+  m_Script: {fileID: 11500000, guid: fb455b443e294054686b7463a21e923b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   type: 5
@@ -1644,17 +1652,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 2136731471}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7598a8fe5f442584d97b666b14c9439e, type: 3}
+  m_Script: {fileID: 11500000, guid: 7217e95f755afd042a2f4edbd4617bcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 148376, guid: feaa94f28bd0a7949ba869b4c9562f0f, type: 2}
+  projectile: {fileID: 0}
   spawnTime: 1
-  projectileDirection: {x: -1, y: 0}
-  projectileSpeed: 12
-  projectileScale: {x: 3, y: 1, z: 0}
-  projectileColor: 0
-  permanant: 0
-  destroyOnCollide: 0
+  info:
+    direction: {x: 0, y: 0}
+    speed: 0
+    scale: {x: 0, y: 0, z: 0}
+    color: 0
+    path: 0
+    centerOffset: 0
+    startPoint: 0
+    destroyOnCollide: 0
+    permanent: 0
   preLoad: 1
 --- !u!4 &2136731473
 Transform:

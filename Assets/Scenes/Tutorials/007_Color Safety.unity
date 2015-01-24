@@ -104,12 +104,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 0}
   spawnTime: .5
-  projectileDirection: {x: 0, y: -1}
-  projectileSpeed: 3
-  projectileScale: {x: 0, y: 0, z: 0}
-  projectileColor: 1
-  permanant: 0
-  destroyOnCollide: 1
+  info:
+    direction: {x: 0, y: 0}
+    speed: 0
+    scale: {x: 0, y: 0, z: 0}
+    color: 0
+    path: 0
+    centerOffset: 0
+    startPoint: 0
+    destroyOnCollide: 0
+    permanent: 0
   preLoad: 1
 --- !u!4 &80860759
 Transform:
@@ -209,12 +213,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 0}
   spawnTime: 1
-  projectileDirection: {x: 0, y: -1}
-  projectileSpeed: 1
-  projectileScale: {x: 0, y: 0, z: 0}
-  projectileColor: 1
-  permanant: 0
-  destroyOnCollide: 1
+  info:
+    direction: {x: 0, y: 0}
+    speed: 0
+    scale: {x: 0, y: 0, z: 0}
+    color: 0
+    path: 0
+    centerOffset: 0
+    startPoint: 0
+    destroyOnCollide: 0
+    permanent: 0
   preLoad: 1
 --- !u!4 &193424088
 Transform:
@@ -491,12 +499,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 0}
   spawnTime: 2
-  projectileDirection: {x: 0, y: -1}
-  projectileSpeed: 1
-  projectileScale: {x: 0, y: 0, z: 0}
-  projectileColor: 0
-  permanant: 0
-  destroyOnCollide: 1
+  info:
+    direction: {x: 0, y: 0}
+    speed: 0
+    scale: {x: 0, y: 0, z: 0}
+    color: 0
+    path: 0
+    centerOffset: 0
+    startPoint: 0
+    destroyOnCollide: 0
+    permanent: 0
   preLoad: 1
 --- !u!4 &636999929
 Transform:
@@ -540,12 +552,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 0}
   spawnTime: 3
-  projectileDirection: {x: 0, y: -1}
-  projectileSpeed: 2
-  projectileScale: {x: 0, y: 0, z: 0}
-  projectileColor: 2
-  permanant: 0
-  destroyOnCollide: 1
+  info:
+    direction: {x: 0, y: 0}
+    speed: 0
+    scale: {x: 0, y: 0, z: 0}
+    color: 0
+    path: 0
+    centerOffset: 0
+    startPoint: 0
+    destroyOnCollide: 0
+    permanent: 0
   preLoad: 1
 --- !u!4 &642412977
 Transform:
@@ -761,12 +777,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 0}
   spawnTime: 2
-  projectileDirection: {x: 0, y: -1}
-  projectileSpeed: 1
-  projectileScale: {x: 0, y: 0, z: 0}
-  projectileColor: 0
-  permanant: 0
-  destroyOnCollide: 1
+  info:
+    direction: {x: 0, y: 0}
+    speed: 0
+    scale: {x: 0, y: 0, z: 0}
+    color: 0
+    path: 0
+    centerOffset: 0
+    startPoint: 0
+    destroyOnCollide: 0
+    permanent: 0
   preLoad: 1
 --- !u!4 &884035893
 Transform:

@@ -298,13 +298,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 822270404}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1372a14883e6b4a46a24641a3d89522a, type: 3}
+  m_Script: {fileID: 11500000, guid: c58f411d0b236ac4bb01d31ded56cb68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 6
   gravity: 10
-  jumpStrength: 5
-  canMove: 0
+  jumpStrength: 6
+  canMove: 1
 --- !u!143 &822270406
 CharacterController:
   m_ObjectHideFlags: 0
@@ -443,7 +443,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 942629435}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f8a55708c420c54c9518464a1515167, type: 3}
+  m_Script: {fileID: 11500000, guid: 617b069e62245f24db387c13e5162bab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1683284375
@@ -555,7 +555,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1730151561}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e86f4c3d5d34f94eb8d24d3c8e613bd, type: 3}
+  m_Script: {fileID: 11500000, guid: deb94f83749d1d84b93e889c68c99feb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   colors: 
@@ -703,7 +703,7 @@ GameObject:
   - 65: {fileID: 2085518459}
   - 23: {fileID: 2085518458}
   - 114: {fileID: 2085518457}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Weenie Mode Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -713,13 +713,13 @@ GameObject:
 --- !u!114 &2085518457
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11407368, guid: 6e5f52c36b900f2428ed985594109d8e,
+  m_PrefabParentObject: {fileID: 11471024, guid: 6e5f52c36b900f2428ed985594109d8e,
     type: 2}
   m_PrefabInternal: {fileID: 1776061558}
   m_GameObject: {fileID: 2085518456}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6158099c7d1485142a4b5beb043bce4c, type: 3}
+  m_Script: {fileID: 11500000, guid: fb455b443e294054686b7463a21e923b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   type: 5

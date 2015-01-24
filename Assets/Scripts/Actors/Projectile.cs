@@ -52,6 +52,20 @@ public class Projectile : MonoBehaviour
 			else { transform.localScale = new Vector3(value.x, value.y, 0.1f); } }
 	}
 
+    private PathType pathType;
+    public PathType PathType
+    {
+        get { return pathType; }
+        set { pathType = value; }
+    }
+
+    private float centerOffset;
+    public float CenterOffset
+    {
+        get { return centerOffset; }
+        set { centerOffset = value; }
+    }
+
     private bool canKill;
 
 	void Update()
@@ -108,4 +122,15 @@ public class Projectile : MonoBehaviour
 			gameObject.GetComponent<PooledObject>().ReturnToPool();
 		}
 	}
+
+    public void Apply(ProjectileInfo info)
+    {
+        this.velocity = info.direction;
+        this.moveSpeed = info.speed;
+        this.Scaler = info.scale;
+        this.ColorType = info.color;
+        this.destroyOnCollide = info.destroyOnCollide;
+        this.permanent = info.permanent;
+        this.pathType = info.path;
+    }
 }

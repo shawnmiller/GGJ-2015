@@ -39,14 +39,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7217e95f755afd042a2f4edbd4617bcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 0}
+  projectile: {fileID: 148376, guid: feaa94f28bd0a7949ba869b4c9562f0f, type: 2}
   spawnTime: 0
-  projectileDirection: {x: 0, y: 0}
-  projectileSpeed: 0
-  projectileScale: {x: 0, y: 0, z: 0}
-  projectileColor: 0
-  permanant: 0
-  destroyOnCollide: 1
+  info:
+    direction: {x: 0, y: 0}
+    speed: 0
+    scale: {x: 0, y: 0, z: 0}
+    color: 0
+    path: 0
+    centerOffset: 0
+    startPoint: 0
+    destroyOnCollide: 0
+    permanent: 0
   preLoad: 1
 --- !u!1001 &100100000
 Prefab:
