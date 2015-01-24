@@ -19,5 +19,10 @@ public class Projectile : MonoBehaviour
 	void Update()
 	{
 		transform.position += transform.TransformDirection(velocity) * moveSpeed * Time.deltaTime;
+
+		if (!renderer.isVisible)
+		{
+			gameObject.GetComponent<PooledObject>().ReturnToPool();
+		}
 	}
 }

@@ -25,14 +25,12 @@ public class Player : MonoBehaviour
 		velocity = Vector2.zero;
 	}
 
-	void FixedUpdate()
+	void Update()
 	{
 		GamePadState state = GamePad.GetState(PlayerIndex.One);
 		aButton.Update(state.Buttons.A);
 
 		onGround = Physics.Raycast(transform.position, Vector3.down, 1.2f, ~(1 << LayerMask.NameToLayer("Player")));
-
-		Debug.Log(onGround);
 
 		if (state.IsConnected)
 		{

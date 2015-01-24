@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 public class Spawner : MonoBehaviour
 {
@@ -12,6 +11,8 @@ public class Spawner : MonoBehaviour
 	public float projectileSpeed;
 	public ColorType projectileColor;
 
+	private static ObjectPool pool;
+
 	void Start()
 	{
 		bool error = false;
@@ -19,6 +20,13 @@ public class Spawner : MonoBehaviour
 		{
 			error = true;
 			Debug.LogError("Spawner with a missing spawn object: " + name);
+		}
+		else
+		{
+			if (pool == null)
+			{
+				pool = new ObjectPool(projectile, 10, true);
+			}
 		}
 
 		if (error)
@@ -33,7 +41,7 @@ public class Spawner : MonoBehaviour
 		if (currentTime >= spawnTime)
 		{
 			currentTime -= spawnTime;
-			GameObject obj = Instantiate(projectile, transform.position, Quaternion.identity) as GameObject;
+			GameObject obj = pool.Get(transform.position);
 			Projectile proj = obj.GetComponent<Projectile>();
 			proj.velocity = projectileDirection;
 			proj.moveSpeed = projectileSpeed;
