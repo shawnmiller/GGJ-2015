@@ -38,11 +38,6 @@ public class ObjectPool
 	public void Return(PooledObject obj)
 	{
 		obj.gameObject.SetActive(false);
-		var scripts = obj.GetComponentsInChildren<MonoBehaviour>().Where(x => x is IPoolable);
-		foreach (MonoBehaviour script in scripts)
-		{
-			((IPoolable)script).Reset();
-		}
 		pool.Push(obj.gameObject);
 		Debug.Log("Object returned to pool: " + obj.name);
 	}
