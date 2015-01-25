@@ -22,7 +22,7 @@ public class ObjectPool
 		}
 	}
 
-	public GameObject Get(Vector2 pos)
+	public GameObject Get(Vector3 pos)
 	{
 		if (pool.Count == 0)
 		{
@@ -42,7 +42,7 @@ public class ObjectPool
 		Debug.Log("Object returned to pool: " + obj.name);
 	}
 
-	public void CreateNewInstance(Vector2 pos)
+	public void CreateNewInstance(Vector3 pos)
 	{
 		GameObject instance = (GameObject)GameObject.Instantiate(prefab);
 		MonoBehaviour.DontDestroyOnLoad(instance);

@@ -16,7 +16,11 @@ public class ColorSwapper : MSingleton<ColorSwapper>
     private KeyWatcher rBumper;         // 1
     private AxisKeyWatcher lTrigger;    // 2
     private AxisKeyWatcher rTrigger;    // 3
-    
+
+	private KeyBoardWatcher numKey1;
+	private KeyBoardWatcher numKey2;
+	private KeyBoardWatcher numKey3;
+	private KeyBoardWatcher numKey4;
 
     void Awake()
     {
@@ -33,21 +37,44 @@ public class ColorSwapper : MSingleton<ColorSwapper>
         rBumper = new KeyWatcher();
         lTrigger = new AxisKeyWatcher();
         rTrigger = new AxisKeyWatcher();
+
+		numKey1 = new KeyBoardWatcher(KeyCode.Alpha1);
+		numKey2 = new KeyBoardWatcher(KeyCode.Alpha2);
+		numKey3 = new KeyBoardWatcher(KeyCode.Alpha3);
+		numKey4 = new KeyBoardWatcher(KeyCode.Alpha4);
     }
 
     void Update()
     {
-        GamePadState state = GamePad.GetState(PlayerIndex.One);
-        lBumper.Update(state.Buttons.LeftShoulder);
-        rBumper.Update(state.Buttons.RightShoulder);
-        lTrigger.Update(state.Triggers.Left);
-        rTrigger.Update(state.Triggers.Right);
 
-        if (lBumper.Pressed()) { SetActiveColor(0); }
-        else if (rBumper.Pressed()) { SetActiveColor(1); }
-        else if (lTrigger.Pressed()) { SetActiveColor(2); }
-        else if (rTrigger.Pressed()) { SetActiveColor(3); }
-        else { SetActiveColor(-1); }
+		GamePadState state = GameManager.Instance.State;
+
+		if (GameManager.Instance.IsConnected)
+		{
+			lBumper.Update(state.Buttons.LeftShoulder);
+			rBumper.Update(state.Buttons.RightShoulder);
+			lTrigger.Update(state.Triggers.Left);
+			rTrigger.Update(state.Triggers.Right);
+
+			if (lBumper.Pressed()) { SetActiveColor(0); }
+			else if (rBumper.Pressed()) { SetActiveColor(1); }
+			else if (lTrigger.Pressed()) { SetActiveColor(2); }
+			else if (rTrigger.Pressed()) { SetActiveColor(3); }
+			else { SetActiveColor(-1); }
+		}
+		else
+		{
+			numKey1.Update();
+			numKey2.Update();
+			numKey3.Update();
+			numKey4.Update();
+
+			if (numKey1.Pressed()) { SetActiveColor(0); }
+			else if (numKey2.Pressed()) { SetActiveColor(1); }
+			else if (numKey3.Pressed()) { SetActiveColor(2); }
+			else if (numKey4.Pressed()) { SetActiveColor(3); }
+			else { SetActiveColor(-1); }
+		}
 
 		for (int i = 0; i < 4; i++)
 		{

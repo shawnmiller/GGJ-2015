@@ -17,7 +17,7 @@ public class ProjectileManager : MSingleton<ProjectileManager>
 		}
 	}
 
-	public GameObject Spawn(Vector2 pos)
+	public GameObject Spawn(Vector3 pos)
 	{
 		GameObject temp = pool.Get(pos);
 

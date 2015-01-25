@@ -1,18 +1,21 @@
 ﻿using UnityEngine;
 using System.Collections;
 using XInputDotNetPure;
+using UnityEngine.UI;
 
 public class PaintGun : MonoBehaviour
 {
     private const float SENSITIVITY = 0.05f;
-    private const float MIN_SPACING = 1f;
+    private const float MIN_SPACING = 0.5f;
     private const float OFFSET = 0.001f;
+	private const float PAINT_AMOUNT = 0.05f;
 
 	public Texture2D reticle;
 	public GameObject paintObject;
+	public Slider slider;
+
     public float moveSpeed = 10f;
 
-	private Vector3 stickPos;
 	private KeyWatcher xButton;
 
     private Vector3 cursorPosition;
@@ -25,19 +28,17 @@ public class PaintGun : MonoBehaviour
 	void Start()
 	{
         cursorPosition = new Vector3(0.5f, 0.5f, 0f);
-		//stickPos = new Vector3(Screen.width - 0.5f / 2, Screen.height - 0.5f / 2, 0f);
 		xButton = new KeyWatcher();
-        marker = new GameObject();
+        marker = new GameObject("Marker");
 	}
 
 	void Update()
 	{
-		GamePadState state = GamePad.GetState(PlayerIndex.One);
+		GamePadState state = GameManager.Instance.State;
 		xButton.Update(state.Buttons.X);
 
-		if (state.IsConnected)
+		if (GameManager.Instance.IsConnected)
 		{
-            
             Vector3 delta = new Vector3(state.ThumbSticks.Left.X, -state.ThumbSticks.Left.Y, 0f) * moveSpeed * SENSITIVITY * Time.deltaTime;
             Vector3 newPosition = cursorPosition + delta;
             newPosition = newPosition.Clamp(Vector3.zero, Vector3.one);
@@ -49,18 +50,25 @@ public class PaintGun : MonoBehaviour
             Vector3 worldPoint = Camera.main.ViewportToWorldPoint(refPoint);
             marker.transform.position = worldPoint;
 
+			Vector3 temp = marker.transform.position;
+			temp.x = Mathf.Floor(temp.x / 0.5f) * 0.5f;
+			temp.y = Mathf.Floor(temp.y / 0.5f) * 0.5f;
+			marker.transform.position = temp;
+
             RaycastHit hit;
             Physics.Raycast(marker.transform.position, Vector3.forward, out hit);
 
             if (xButton.Pressed())
             {
-                if (hit.collider != null && Vector3.Distance(hit.point, lastSpawn) > MIN_SPACING)
+                if (hit.collider != null && Vector3.Distance(hit.point, lastSpawn) > MIN_SPACING && slider.value > 0)
                 {
                     GameObject instance = Instantiate(paintObject, hit.point, Quaternion.identity) as GameObject;
                     Vector3 newPos = instance.transform.position;
-                    newPos.z = -spawned * OFFSET;
+                    //newPos.z = -spawned * OFFSET;
                     instance.transform.position = newPos;
                     instance.renderer.material.color = (spawned % 2 == 0 ? Color.blue : Color.red);
+
+					slider.value = Mathf.Max(0f, slider.value - PAINT_AMOUNT);
 
                     lastSpawn = instance.transform.position;
                     ++spawned;

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
+using XInputDotNetPure;
 
 public enum GameMode
 {
@@ -31,6 +32,18 @@ public class GameManager : MSingleton<GameManager>
 		get { return levelCompleted; }
 	}
 
+	private GamePadState state;
+	public GamePadState State
+	{
+		get { return state; }
+		set { state = value; }
+	}
+	public bool IsConnected
+	{
+		get { return state.IsConnected; }
+	}
+
+
     void Awake()
     {
 		PlayerPrefs.DeleteAll(); // Temp delete thissssss
@@ -45,6 +58,12 @@ public class GameManager : MSingleton<GameManager>
 		postLevel.SetActive(false);
 		pause.SetActive(false);
     }
+
+	void Update()
+	{
+		// Run a global state in the game manager
+		state = GamePad.GetState(PlayerIndex.One);
+	}
 
     public void StartGame(int mode)
     {

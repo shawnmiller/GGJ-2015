@@ -338,7 +338,7 @@ GameObject:
   - 33: {fileID: 626371465}
   - 65: {fileID: 626371464}
   - 23: {fileID: 626371463}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Terrrain
   m_TagString: Terrain
   m_Icon: {fileID: 0}
@@ -412,7 +412,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 446262, guid: 765e404041ebf02418e819369fad3c10, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 446262, guid: 765e404041ebf02418e819369fad3c10, type: 2}
       propertyPath: m_LocalPosition.z
@@ -436,7 +436,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 446262, guid: 765e404041ebf02418e819369fad3c10, type: 2}
       propertyPath: m_RootOrder
-      value: 9
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 11446262, guid: 765e404041ebf02418e819369fad3c10, type: 2}
       propertyPath: projectileDirection.y
@@ -489,8 +489,8 @@ GameObject:
   - 4: {fileID: 662737670}
   - 33: {fileID: 662737669}
   - 23: {fileID: 662737668}
-  - 143: {fileID: 662737667}
-  - 114: {fileID: 662737665}
+  - 114: {fileID: 662737666}
+  - 143: {fileID: 662737665}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -498,10 +498,25 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &662737665
+--- !u!143 &662737665
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 14360628, guid: bbb7e753208597f4b8aa224c61863d77,
+    type: 2}
+  m_PrefabInternal: {fileID: 976920819}
+  m_GameObject: {fileID: 662737664}
+  serializedVersion: 2
+  m_Height: 2
+  m_Radius: .400000006
+  m_SlopeLimit: 45
+  m_StepOffset: .300000012
+  m_SkinWidth: .0799999982
+  m_MinMoveDistance: 0
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &662737666
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11434918, guid: bbb7e753208597f4b8aa224c61863d77,
+  m_PrefabParentObject: {fileID: 11438300, guid: bbb7e753208597f4b8aa224c61863d77,
     type: 2}
   m_PrefabInternal: {fileID: 976920819}
   m_GameObject: {fileID: 662737664}
@@ -511,24 +526,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 6
-  gravity: 15
-  jumpStrength: 6
+  gravity: 10
+  jumpStrength: 4
   canMove: 1
---- !u!143 &662737667
-CharacterController:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 14374678, guid: bbb7e753208597f4b8aa224c61863d77,
-    type: 2}
-  m_PrefabInternal: {fileID: 976920819}
-  m_GameObject: {fileID: 662737664}
-  serializedVersion: 2
-  m_Height: 2
-  m_Radius: .300000012
-  m_SlopeLimit: 45
-  m_StepOffset: .300000012
-  m_SkinWidth: .00999999978
-  m_MinMoveDistance: 0
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &662737668
 Renderer:
   m_ObjectHideFlags: 0
@@ -908,6 +908,7 @@ MonoBehaviour:
     startPoint: 0
     destroyOnCollide: 0
     permanent: 0
+    reversed: 0
   preLoad: 1
 --- !u!4 &977779153
 Transform:
@@ -1164,7 +1165,7 @@ GameObject:
   - 33: {fileID: 1577193986}
   - 65: {fileID: 1577193985}
   - 23: {fileID: 1577193984}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Terrrain
   m_TagString: Terrain
   m_Icon: {fileID: 0}
@@ -1265,6 +1266,7 @@ MonoBehaviour:
     startPoint: 0
     destroyOnCollide: 0
     permanent: 0
+    reversed: 0
   preLoad: 1
 --- !u!4 &1650710478
 Transform:
@@ -1273,7 +1275,7 @@ Transform:
   m_PrefabInternal: {fileID: 637245822}
   m_GameObject: {fileID: 1650710476}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalPosition: {x: 0, y: 2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1289,7 +1291,7 @@ GameObject:
   - 33: {fileID: 1825604896}
   - 65: {fileID: 1825604895}
   - 23: {fileID: 1825604894}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Terrrain
   m_TagString: Terrain
   m_Icon: {fileID: 0}

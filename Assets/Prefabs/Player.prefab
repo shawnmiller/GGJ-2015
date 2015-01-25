@@ -10,8 +10,8 @@ GameObject:
   - 4: {fileID: 474678}
   - 33: {fileID: 3374678}
   - 23: {fileID: 2374678}
-  - 143: {fileID: 14374678}
-  - 114: {fileID: 11434918}
+  - 114: {fileID: 11438300}
+  - 143: {fileID: 14360628}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -58,7 +58,7 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 174678}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &11434918
+--- !u!114 &11438300
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -70,10 +70,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 6
-  gravity: 15
-  jumpStrength: 6
+  gravity: 10
+  jumpStrength: 4
   canMove: 1
---- !u!143 &14374678
+--- !u!143 &14360628
 CharacterController:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -81,10 +81,10 @@ CharacterController:
   m_GameObject: {fileID: 174678}
   serializedVersion: 2
   m_Height: 2
-  m_Radius: .300000012
+  m_Radius: .400000006
   m_SlopeLimit: 45
   m_StepOffset: .300000012
-  m_SkinWidth: .00999999978
+  m_SkinWidth: .0799999982
   m_MinMoveDistance: 0
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &100100000
