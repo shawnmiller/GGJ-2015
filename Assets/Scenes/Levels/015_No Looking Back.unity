@@ -85,7 +85,7 @@ GameObject:
   - 33: {fileID: 105895497}
   - 65: {fileID: 105895496}
   - 23: {fileID: 105895495}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Terrrain
   m_TagString: Terrain
   m_Icon: {fileID: 0}
@@ -157,7 +157,7 @@ GameObject:
   - 33: {fileID: 114883830}
   - 65: {fileID: 114883829}
   - 23: {fileID: 114883828}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Terrrain
   m_TagString: Terrain
   m_Icon: {fileID: 0}
@@ -229,7 +229,7 @@ GameObject:
   - 33: {fileID: 277839608}
   - 65: {fileID: 277839607}
   - 23: {fileID: 277839606}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Terrrain
   m_TagString: Terrain
   m_Icon: {fileID: 0}
@@ -307,7 +307,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 446262, guid: 765e404041ebf02418e819369fad3c10, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 1
+      value: .100000001
       objectReference: {fileID: 0}
     - target: {fileID: 446262, guid: 765e404041ebf02418e819369fad3c10, type: 2}
       propertyPath: m_LocalRotation.x
@@ -347,7 +347,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11446262, guid: 765e404041ebf02418e819369fad3c10, type: 2}
       propertyPath: info.scale.z
-      value: 10
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11446262, guid: 765e404041ebf02418e819369fad3c10, type: 2}
       propertyPath: info.permanent
@@ -421,7 +421,7 @@ GameObject:
   - 33: {fileID: 517489737}
   - 65: {fileID: 517489736}
   - 23: {fileID: 517489735}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Terrrain
   m_TagString: Terrain
   m_Icon: {fileID: 0}
@@ -537,7 +537,7 @@ GameObject:
   - 33: {fileID: 587227400}
   - 65: {fileID: 587227399}
   - 23: {fileID: 587227398}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Terrrain
   m_TagString: Terrain
   m_Icon: {fileID: 0}
@@ -609,7 +609,7 @@ GameObject:
   - 33: {fileID: 629842569}
   - 65: {fileID: 629842568}
   - 23: {fileID: 629842567}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Terrrain
   m_TagString: Terrain
   m_Icon: {fileID: 0}
@@ -996,7 +996,7 @@ GameObject:
   - 33: {fileID: 1600126714}
   - 65: {fileID: 1600126713}
   - 23: {fileID: 1600126712}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Terrrain
   m_TagString: Terrain
   m_Icon: {fileID: 0}
@@ -1090,7 +1090,7 @@ MonoBehaviour:
   info:
     direction: {x: 1, y: 0}
     speed: 1
-    scale: {x: 8, y: 32, z: 10}
+    scale: {x: 8, y: 32, z: 0}
     color: 4
     path: 0
     centerOffset: 0
@@ -1106,7 +1106,7 @@ Transform:
   m_PrefabInternal: {fileID: 398462154}
   m_GameObject: {fileID: 1604717578}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -23, y: 10, z: 1}
+  m_LocalPosition: {x: -23, y: 10, z: .100000001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1410,7 +1410,7 @@ GameObject:
   - 33: {fileID: 2141649754}
   - 65: {fileID: 2141649753}
   - 23: {fileID: 2141649752}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Terrrain
   m_TagString: Terrain
   m_Icon: {fileID: 0}
