@@ -90,6 +90,12 @@ public class Projectile : MonoBehaviour
 
     private bool canKill;
 
+    private LeanTween cTween;
+    private Vector3[] tweenPoints;
+    private int tweenA;
+    private int tweenB;
+    private float tweenValue;
+
 	void Update()
 	{
         updateMethod();
@@ -114,12 +120,12 @@ public class Projectile : MonoBehaviour
     {
         this.velocity = info.direction;
         this.moveSpeed = info.speed;
+        Debug.Log(info.speed);
         this.Scaler = info.scale;
         this.ColorType = info.color;
         this.destroyOnCollide = info.destroyOnCollide;
         this.permanent = info.permanent;
-        this.startPoint = Mathf.Clamp(info.startPoint, 0f, 1f);
-        this.PathType = info.path;
+        DefinePath(info);
     }
 
     private void MoveLinear()
@@ -134,12 +140,20 @@ public class Projectile : MonoBehaviour
 
     private void MoveCircular()
     {
-        
+        Debug.Log(moveSpeed * Time.deltaTime);
+        personalRotator.Rotate(0f, 0f, moveSpeed * Time.deltaTime, Space.World);
+        MatchToRotator();
     }
 
     private void MoveSquarical()
     {
-
+        tweenValue += moveSpeed * Time.deltaTime;
+        if (tweenValue > 1f)
+        {
+            tweenValue -= 1f;
+            ShiftTweenPoints();
+        }
+        transform.position = Vector3.Lerp(tweenPoints[tweenA], tweenPoints[tweenB], tweenValue);
     }
 
     private void MatchToRotator()
@@ -179,5 +193,46 @@ public class Projectile : MonoBehaviour
             color.a = 0.3f;
         }
         renderer.material.color = color;
+    }
+
+    private void DefinePath(ProjectileInfo info)
+    {
+        pathType = info.path;
+        if (pathType == PathType.Linear)
+        {
+            updateMethod = MoveLinear;
+        }
+        else if (pathType == PathType.Circular)
+        {
+            updateMethod = MoveCircular;
+            centerPoint = transform.position;
+            personalRotator = ((GameObject)Instantiate(rotator, centerPoint, Quaternion.identity)).transform;
+            personalRotator.Rotate(new Vector3(0, 0, 360f * startPoint), Space.World);
+            personalRotator.GetChild(0).localPosition = Vector3.up * info.centerOffset;
+            MatchToRotator();
+        }
+        else if (pathType == PathType.Squarical)
+        {
+            updateMethod = MoveSquarical;
+            centerPoint = transform.position;
+            tweenPoints = new Vector3[4];
+            tweenPoints[0] = new Vector3(centerPoint.x - info.centerOffset, centerPoint.y + info.centerOffset, 0);
+            tweenPoints[1] = new Vector3(centerPoint.x + info.centerOffset, centerPoint.y + info.centerOffset, 0);
+            tweenPoints[2] = new Vector3(centerPoint.x + info.centerOffset, centerPoint.y - info.centerOffset, 0);
+            tweenPoints[3] = new Vector3(centerPoint.x - info.centerOffset, centerPoint.y - info.centerOffset, 0);
+
+            tweenA = Mathf.FloorToInt(info.startPoint / 0.25f);
+            tweenB = tweenA + 1;
+            if (tweenB == 4) { tweenB = 0; }
+        }
+    }
+
+    private void ShiftTweenPoints()
+    {
+        ++tweenA;
+        ++tweenB;
+
+        if (tweenA == 4) { tweenA = 0; }
+        if (tweenB == 4) { tweenB = 0; }
     }
 }

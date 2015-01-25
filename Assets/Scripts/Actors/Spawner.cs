@@ -26,9 +26,6 @@ public class Spawner : MonoBehaviour
 
 		if (info.permanent)
 		{
-			spawnTime = 0f;
-            info.direction = Vector2.zero;
-            info.speed = 0f;
 
 			SpawnProjectile();
 		}
@@ -60,6 +57,7 @@ public class Spawner : MonoBehaviour
 	{
 		GameObject obj = ProjectileManager.Instance.Spawn(transform.position);
 		Projectile proj = obj.GetComponent<Projectile>();
+        Debug.Log(info.speed);
         proj.Apply(info);
 	}
 }

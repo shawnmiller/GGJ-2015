@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 [System.Serializable]
-public struct ProjectileInfo
+public class ProjectileInfo
 {
     public Vector2 direction;
     public float speed;
