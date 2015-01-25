@@ -3,8 +3,8 @@
 	Red = 0,
 	Green,
 	Blue,
-	Purple,
 	Orange,
+    Purple,
 	Black,
     RandomAll,
     RandomAvoidable
