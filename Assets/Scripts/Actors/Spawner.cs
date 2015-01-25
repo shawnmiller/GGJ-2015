@@ -2,6 +2,8 @@
 
 public class Spawner : MonoBehaviour
 {
+    public static System.Random gen = new System.Random();
+
 	public GameObject projectile;
 
 	public float spawnTime;
@@ -26,7 +28,6 @@ public class Spawner : MonoBehaviour
 
 		if (info.permanent)
 		{
-
 			SpawnProjectile();
 		}
 	}
@@ -55,8 +56,21 @@ public class Spawner : MonoBehaviour
 
 	void SpawnProjectile()
 	{
+        ProjectileInfo temp = info;
+
+        if (info.color == ColorType.RandomAll)
+        {
+            temp = info.Clone();
+            temp.color = (ColorType)gen.Next(0, 6);
+        }
+        else if (info.color == ColorType.RandomAvoidable)
+        {
+            temp = info.Clone();
+            temp.color = (ColorType)gen.Next(0, 5);
+        }
+
 		GameObject obj = ProjectileManager.Instance.Spawn(transform.position);
 		Projectile proj = obj.GetComponent<Projectile>();
-        proj.Apply(info);
+        proj.Apply(temp);
 	}
 }
