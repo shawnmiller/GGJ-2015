@@ -7,6 +7,9 @@ public class LevelColors : MonoBehaviour
 
     public ColorType[] colors = new ColorType[4];
 
+	private string[] xBox = new string[4] { "LB", "RB", "LT", "RT" };
+	private string[] keyBoard = new string[4] { "1", "2", "3", "4" };
+
     void Start()
     {
         if (colors.Length > 4)
@@ -25,11 +28,26 @@ public class LevelColors : MonoBehaviour
                     Image image = hud.transform.GetChild(i).GetChild(0).GetComponent<Image>();
                     image.enabled = true;
                     image.color = PickColor.Get(colors[i]);
+
+					Text text = hud.transform.GetChild(i).GetChild(1).GetComponent<Text>();
+					text.enabled = true;
+
+					if (GameManager.Instance.IsConnected)
+					{
+						text.text = xBox[i];
+					}
+					else
+					{
+						text.text = keyBoard[i];
+					}
+
                 }
                 else
                 {
                     Image image = hud.transform.GetChild(i).GetChild(0).GetComponent<Image>();
                     image.enabled = false;
+					Text text = hud.transform.GetChild(i).GetChild(1).GetComponent<Text>();
+					text.enabled = false;
                 }
             }
         }
