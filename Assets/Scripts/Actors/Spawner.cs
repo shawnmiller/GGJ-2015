@@ -61,12 +61,12 @@ public class Spawner : MonoBehaviour
         if (info.color == ColorType.RandomAll)
         {
             temp = info.Clone();
-            temp.color = (ColorType)gen.Next(0, 6);
+            temp.color = (ColorType)gen.Next(0, 5);
         }
         else if (info.color == ColorType.RandomAvoidable)
         {
             temp = info.Clone();
-            temp.color = (ColorType)gen.Next(0, 5);
+            temp.color = (ColorType)gen.Next(0, 4);
         }
 
 		GameObject obj = ProjectileManager.Instance.Spawn(transform.position);
