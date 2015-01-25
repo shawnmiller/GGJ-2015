@@ -230,6 +230,7 @@ MonoBehaviour:
     startPoint: .625
     destroyOnCollide: 0
     permanent: 1
+    reversed: 1
   preLoad: 1
 --- !u!4 &82805248
 Transform:
@@ -301,6 +302,10 @@ Prefab:
     - target: {fileID: 11446262, guid: 765e404041ebf02418e819369fad3c10, type: 2}
       propertyPath: info.startPoint
       value: .125
+      objectReference: {fileID: 0}
+    - target: {fileID: 11446262, guid: 765e404041ebf02418e819369fad3c10, type: 2}
+      propertyPath: info.reversed
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 765e404041ebf02418e819369fad3c10, type: 2}
@@ -759,6 +764,10 @@ Prefab:
       propertyPath: info.startPoint
       value: .625
       objectReference: {fileID: 0}
+    - target: {fileID: 11446262, guid: 765e404041ebf02418e819369fad3c10, type: 2}
+      propertyPath: info.reversed
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 765e404041ebf02418e819369fad3c10, type: 2}
   m_RootGameObject: {fileID: 82805246}
@@ -822,6 +831,10 @@ Prefab:
     - target: {fileID: 11446262, guid: 765e404041ebf02418e819369fad3c10, type: 2}
       propertyPath: info.startPoint
       value: .625
+      objectReference: {fileID: 0}
+    - target: {fileID: 11446262, guid: 765e404041ebf02418e819369fad3c10, type: 2}
+      propertyPath: info.reversed
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 765e404041ebf02418e819369fad3c10, type: 2}
@@ -912,6 +925,7 @@ MonoBehaviour:
     startPoint: 0
     destroyOnCollide: 0
     permanent: 0
+    reversed: 0
   preLoad: 1
 --- !u!4 &485767008
 Transform:
@@ -1013,6 +1027,7 @@ MonoBehaviour:
     startPoint: 0
     destroyOnCollide: 0
     permanent: 0
+    reversed: 0
   preLoad: 1
 --- !u!4 &537747848
 Transform:
@@ -1290,6 +1305,10 @@ Prefab:
       propertyPath: info.startPoint
       value: .125
       objectReference: {fileID: 0}
+    - target: {fileID: 11446262, guid: 765e404041ebf02418e819369fad3c10, type: 2}
+      propertyPath: info.reversed
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 765e404041ebf02418e819369fad3c10, type: 2}
   m_RootGameObject: {fileID: 1885709778}
@@ -1335,6 +1354,7 @@ MonoBehaviour:
     startPoint: 0
     destroyOnCollide: 0
     permanent: 0
+    reversed: 0
   preLoad: 1
 --- !u!4 &640633253
 Transform:
@@ -1448,6 +1468,7 @@ MonoBehaviour:
     startPoint: 0
     destroyOnCollide: 0
     permanent: 0
+    reversed: 0
   preLoad: 1
 --- !u!4 &701793082
 Transform:
@@ -1501,6 +1522,7 @@ MonoBehaviour:
     startPoint: 0
     destroyOnCollide: 0
     permanent: 1
+    reversed: 0
   preLoad: 1
 --- !u!4 &707879474
 Transform:
@@ -1921,6 +1943,7 @@ MonoBehaviour:
     startPoint: 0
     destroyOnCollide: 0
     permanent: 0
+    reversed: 0
   preLoad: 1
 --- !u!4 &772087539
 Transform:
@@ -2222,6 +2245,7 @@ MonoBehaviour:
     startPoint: .125
     destroyOnCollide: 0
     permanent: 1
+    reversed: 1
   preLoad: 1
 --- !u!4 &1065651113
 Transform:
@@ -2327,6 +2351,7 @@ MonoBehaviour:
     startPoint: 0
     destroyOnCollide: 0
     permanent: 0
+    reversed: 0
   preLoad: 1
 --- !u!4 &1106031317
 Transform:
@@ -2380,6 +2405,7 @@ MonoBehaviour:
     startPoint: .875
     destroyOnCollide: 0
     permanent: 1
+    reversed: 1
   preLoad: 1
 --- !u!4 &1106906475
 Transform:
@@ -2433,6 +2459,7 @@ MonoBehaviour:
     startPoint: .625
     destroyOnCollide: 0
     permanent: 1
+    reversed: 1
   preLoad: 1
 --- !u!4 &1159978393
 Transform:
@@ -2606,6 +2633,7 @@ MonoBehaviour:
     startPoint: 0
     destroyOnCollide: 0
     permanent: 0
+    reversed: 0
   preLoad: 1
 --- !u!4 &1192812121
 Transform:
@@ -3078,6 +3106,10 @@ Prefab:
       propertyPath: info.startPoint
       value: .375
       objectReference: {fileID: 0}
+    - target: {fileID: 11446262, guid: 765e404041ebf02418e819369fad3c10, type: 2}
+      propertyPath: info.reversed
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 765e404041ebf02418e819369fad3c10, type: 2}
   m_RootGameObject: {fileID: 1715796261}
@@ -3352,6 +3384,10 @@ Prefab:
       propertyPath: info.startPoint
       value: .875
       objectReference: {fileID: 0}
+    - target: {fileID: 11446262, guid: 765e404041ebf02418e819369fad3c10, type: 2}
+      propertyPath: info.reversed
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 765e404041ebf02418e819369fad3c10, type: 2}
   m_RootGameObject: {fileID: 1642833277}
@@ -3397,6 +3433,7 @@ MonoBehaviour:
     startPoint: .875
     destroyOnCollide: 0
     permanent: 1
+    reversed: 1
   preLoad: 1
 --- !u!4 &1642833279
 Transform:
@@ -3670,6 +3707,7 @@ MonoBehaviour:
     startPoint: .375
     destroyOnCollide: 0
     permanent: 1
+    reversed: 1
   preLoad: 1
 --- !u!4 &1715796263
 Transform:
@@ -3741,6 +3779,10 @@ Prefab:
     - target: {fileID: 11446262, guid: 765e404041ebf02418e819369fad3c10, type: 2}
       propertyPath: info.startPoint
       value: .125
+      objectReference: {fileID: 0}
+    - target: {fileID: 11446262, guid: 765e404041ebf02418e819369fad3c10, type: 2}
+      propertyPath: info.reversed
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 765e404041ebf02418e819369fad3c10, type: 2}
@@ -3918,6 +3960,10 @@ Prefab:
       propertyPath: preLoad
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11446262, guid: 765e404041ebf02418e819369fad3c10, type: 2}
+      propertyPath: info.reversed
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 765e404041ebf02418e819369fad3c10, type: 2}
   m_RootGameObject: {fileID: 2096571628}
@@ -3963,6 +4009,7 @@ MonoBehaviour:
     startPoint: .125
     destroyOnCollide: 0
     permanent: 1
+    reversed: 1
   preLoad: 1
 --- !u!4 &1885709780
 Transform:
@@ -4255,6 +4302,10 @@ Prefab:
       propertyPath: info.startPoint
       value: .875
       objectReference: {fileID: 0}
+    - target: {fileID: 11446262, guid: 765e404041ebf02418e819369fad3c10, type: 2}
+      propertyPath: info.reversed
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 765e404041ebf02418e819369fad3c10, type: 2}
   m_RootGameObject: {fileID: 1106906473}
@@ -4404,6 +4455,7 @@ MonoBehaviour:
     startPoint: 0
     destroyOnCollide: 0
     permanent: 0
+    reversed: 0
   preLoad: 1
 --- !u!4 &2090808185
 Transform:
@@ -4457,6 +4509,7 @@ MonoBehaviour:
     startPoint: .375
     destroyOnCollide: 0
     permanent: 1
+    reversed: 1
   preLoad: 1
 --- !u!4 &2096571630
 Transform:
@@ -4510,6 +4563,7 @@ MonoBehaviour:
     startPoint: .125
     destroyOnCollide: 0
     permanent: 1
+    reversed: 1
   preLoad: 1
 --- !u!4 &2097586171
 Transform:
@@ -4719,6 +4773,7 @@ MonoBehaviour:
     startPoint: 0
     destroyOnCollide: 0
     permanent: 0
+    reversed: 0
   preLoad: 1
 --- !u!4 &2136295807
 Transform:
