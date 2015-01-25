@@ -37,6 +37,13 @@ public class PaintGun : MonoBehaviour
 		GamePadState state = GameManager.Instance.State;
 		xButton.Update(state.Buttons.X);
 
+        if (state.Buttons.Start == ButtonState.Pressed)
+        {
+            if (GameManager.Instance.ManState == ManModeState.PissingRainbows) { GameManager.Instance.WreckShit(); }
+            else                                                               { GameManager.Instance.PissBreak(); }
+        }
+        if (GameManager.Instance.ManState == ManModeState.ScreamingViolently) { return; }
+
 		if (GameManager.Instance.IsConnected)
 		{
             Vector3 delta = new Vector3(state.ThumbSticks.Left.X, -state.ThumbSticks.Left.Y, 0f) * moveSpeed * SENSITIVITY * Time.deltaTime;
@@ -64,7 +71,7 @@ public class PaintGun : MonoBehaviour
                 {
                     GameObject instance = Instantiate(paintObject, hit.point, Quaternion.identity) as GameObject;
                     Vector3 newPos = instance.transform.position;
-                    //newPos.z = -spawned * OFFSET;
+                    newPos.z = -spawned * OFFSET;
                     instance.transform.position = newPos;
                     instance.renderer.material.color = (spawned % 2 == 0 ? Color.blue : Color.red);
 

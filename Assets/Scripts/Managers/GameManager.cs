@@ -8,6 +8,12 @@ public enum GameMode
     ManMode = 1
 }
 
+public enum ManModeState
+{
+    PissingRainbows,
+    ScreamingViolently
+}
+
 public class GameManager : MSingleton<GameManager>
 {
     private const string LEVEL_KEY = "Starting Level";
@@ -21,6 +27,10 @@ public class GameManager : MSingleton<GameManager>
     private GameMode mode;
     public GameMode Mode
     { get { return mode; } }
+
+    private ManModeState manState;
+    public ManModeState ManState
+    { get { return manState; } }
 
     private GameObject background;
     public GameObject Background
@@ -68,6 +78,11 @@ public class GameManager : MSingleton<GameManager>
     public void StartGame(int mode)
     {
         this.mode = (GameMode)mode;
+
+        if (this.mode == GameMode.ManMode)
+        {
+            manState = ManModeState.PissingRainbows;
+        }
         currentLevel = GetStartLevel();
 		menu.SetActive(false);
 		hud.SetActive(true);
@@ -113,6 +128,10 @@ public class GameManager : MSingleton<GameManager>
 
     public void AdvanceLevel()
     {
+        if (mode == GameMode.ManMode)
+        {
+            manState = ManModeState.PissingRainbows;
+        }
 		postLevel.SetActive(false);
 		hud.SetActive(true);
         LoadLevel();
@@ -126,6 +145,16 @@ public class GameManager : MSingleton<GameManager>
 		EventSystem eventSys = GameObject.FindObjectOfType<EventSystem>();
 		eventSys.SetSelectedGameObject(menu.transform.GetChild(0).GetChild(0).gameObject);
         Application.LoadLevel(0);
+    }
+
+    public void WreckShit()
+    {
+        manState = ManModeState.ScreamingViolently;
+    }
+
+    public void PissBreak()
+    {
+        manState = ManModeState.PissingRainbows;
     }
 
     private int GetStartLevel()
