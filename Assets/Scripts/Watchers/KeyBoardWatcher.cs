@@ -13,8 +13,8 @@ public class KeyBoardWatcher
 
 	public void Update()
 	{
-		currentState = Input.GetKey(key);
 		previousState = currentState;
+		currentState = Input.GetKey(key);
 	}
 
 	public bool Pressed()
@@ -29,7 +29,7 @@ public class KeyBoardWatcher
 
 	public bool Released()
 	{
-		return !currentState;
+		return previousState;
 	}
 
 	public bool Up()

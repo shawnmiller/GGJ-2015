@@ -8,7 +8,7 @@ public class LevelColors : MonoBehaviour
     public ColorType[] colors = new ColorType[4];
 
 	private string[] xBox = new string[4] { "LB", "RB", "LT", "RT" };
-	private string[] keyBoard = new string[4] { "1", "2", "3", "4" };
+	private string[] keyBoard = new string[4] { "U", "I", "O", "P" };
 
     void Start()
     {

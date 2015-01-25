@@ -38,10 +38,10 @@ public class ColorSwapper : MSingleton<ColorSwapper>
         lTrigger = new AxisKeyWatcher();
         rTrigger = new AxisKeyWatcher();
 
-		numKey1 = new KeyBoardWatcher(KeyCode.Alpha1);
-		numKey2 = new KeyBoardWatcher(KeyCode.Alpha2);
-		numKey3 = new KeyBoardWatcher(KeyCode.Alpha3);
-		numKey4 = new KeyBoardWatcher(KeyCode.Alpha4);
+		numKey1 = new KeyBoardWatcher(KeyCode.U);
+		numKey2 = new KeyBoardWatcher(KeyCode.I);
+		numKey3 = new KeyBoardWatcher(KeyCode.O);
+		numKey4 = new KeyBoardWatcher(KeyCode.P);
     }
 
     void Update()
