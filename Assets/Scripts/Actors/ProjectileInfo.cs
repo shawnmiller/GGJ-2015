@@ -14,4 +14,5 @@ public class ProjectileInfo
     public float startPoint;
     public bool destroyOnCollide;
     public bool permanent;
+    public bool reversed;
 }

@@ -95,6 +95,7 @@ public class Projectile : MonoBehaviour
     private int tweenA;
     private int tweenB;
     private float tweenValue;
+    private bool reversed;
 
     private bool wasVisible;
 
@@ -128,6 +129,7 @@ public class Projectile : MonoBehaviour
         this.ColorType = info.color;
         this.destroyOnCollide = info.destroyOnCollide;
         this.permanent = info.permanent;
+        this.reversed = info.reversed;
         DefinePath(info);
     }
 
@@ -145,7 +147,7 @@ public class Projectile : MonoBehaviour
     private void MoveCircular()
     {
         Debug.Log(moveSpeed * Time.deltaTime);
-        personalRotator.Rotate(0f, 0f, moveSpeed * Time.deltaTime, Space.World);
+        personalRotator.Rotate(0f, 0f, -moveSpeed * Time.deltaTime, Space.World);
         MatchToRotator();
     }
 
@@ -225,18 +227,38 @@ public class Projectile : MonoBehaviour
             tweenPoints[2] = new Vector3(centerPoint.x + info.centerOffset, centerPoint.y - info.centerOffset, 0);
             tweenPoints[3] = new Vector3(centerPoint.x - info.centerOffset, centerPoint.y - info.centerOffset, 0);
 
-            tweenA = Mathf.FloorToInt(info.startPoint / 0.25f);
-            tweenB = tweenA + 1;
-            if (tweenB == 4) { tweenB = 0; }
+            if (!info.reversed)
+            {
+                tweenA = Mathf.FloorToInt(info.startPoint / 0.25f);
+                tweenB = tweenA + 1;
+                if (tweenB == 4) { tweenB = 0; }
+            }
+            else
+            {
+                tweenB = Mathf.FloorToInt(info.startPoint / 0.25f);
+                tweenA = tweenB - 1;
+                if (tweenB == -1) { tweenB = 3; }
+            }
         }
     }
 
     private void ShiftTweenPoints()
     {
-        ++tweenA;
-        ++tweenB;
+        if (!reversed)
+        {
+            ++tweenA;
+            ++tweenB;
 
-        if (tweenA == 4) { tweenA = 0; }
-        if (tweenB == 4) { tweenB = 0; }
+            if (tweenA == 4) { tweenA = 0; }
+            if (tweenB == 4) { tweenB = 0; }
+        }
+        else
+        {
+            --tweenA;
+            --tweenB;
+
+            if (tweenA == -1) { tweenA = 3; }
+            if (tweenB == -1) { tweenB = 3; }
+        }
     }
 }
