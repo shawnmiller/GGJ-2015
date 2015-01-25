@@ -177,7 +177,7 @@ public class Projectile : MonoBehaviour
         else
         {
             renderer.material.mainTexture = blend;
-            color.a = 0.3f;
+            color.a = 0.5f;
         }
         renderer.material.color = color;
     }

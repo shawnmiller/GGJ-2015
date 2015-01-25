@@ -51,7 +51,7 @@ public class ColorSwapper : MSingleton<ColorSwapper>
 
 		for (int i = 0; i < 4; i++)
 		{
-			if (i == activeIndex)
+			if (levelColors && levelColors.GetColor(i) != ColorType.Black && i == activeIndex)
 			{
 				Image current = hud.GetChild(i).GetComponent<Image>();
 				current.color = HIGHLIGHT;
