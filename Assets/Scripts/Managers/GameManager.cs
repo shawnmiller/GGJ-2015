@@ -129,4 +129,17 @@ public class GameManager : MSingleton<GameManager>
             GameObject.Destroy(background);
         }
     }
+
+	public void GoToLevel()
+	{
+		GameObject text = GameObject.Find("InputField").transform.GetChild(2).gameObject;
+
+		string levelText = text.GetComponent<UnityEngine.UI.Text>().text;
+
+		int level = int.Parse(levelText);
+
+		currentLevel = level;
+		menu.SetActive(false);
+		LoadLevel();
+	}
 }
