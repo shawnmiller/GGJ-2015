@@ -109,6 +109,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfab5cfbd48e8934e95cc6e9c803f7e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotator: {fileID: 190036, guid: 6c036fa65c6583f45a2d247f90217e43, type: 2}
   normal: {fileID: 2800000, guid: 58cf52955054bd3438313c835a8eb65e, type: 3}
   blend: {fileID: 2800000, guid: 496283fe18aa7ba4aa459b97d8dc82dd, type: 3}
 --- !u!1001 &100100000
