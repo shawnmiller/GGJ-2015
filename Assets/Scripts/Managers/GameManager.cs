@@ -162,9 +162,19 @@ public class GameManager : MSingleton<GameManager>
 
     public void AdvanceLevel()
     {
-		postLevel.SetActive(false);
-		hud.SetActive(true);
-        LoadLevel();
+        if (Application.loadedLevel == Application.levelCount)
+        {
+            currentLevel = 1;
+            PlayerPrefs.SetInt(LEVEL_KEY, currentLevel);
+            PlayerPrefs.Save();
+            Application.LoadLevel(0);
+        }
+        else
+        {
+            postLevel.SetActive(false);
+            hud.SetActive(true);
+            LoadLevel();
+        }
     }
 
     public void Back()
