@@ -71,11 +71,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controllable: 0
   speed: 6
-  gravity: 15
-  jumpHeight: 5
+  gravity: 20
+  jumpHeight: 6
   fallAirTime: .5
-  airbornControlAmount: .100000001
-  airDrag: .995000005
+  airbornControlAmount: .5
+  airDrag: .899999976
+  canDie: 0
 --- !u!143 &14360628
 CharacterController:
   m_ObjectHideFlags: 1

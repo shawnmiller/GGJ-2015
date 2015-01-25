@@ -94,7 +94,7 @@ public class GameManager : MSingleton<GameManager>
 
 		if (mode == GameMode.ManMode)
 		{
-			if (state.Buttons.B == ButtonState.Pressed && manState != ManModeState.ScreamingViolently)
+			if (state.Buttons.B == ButtonState.Pressed || Input.GetMouseButtonDown(1) && manState != ManModeState.ScreamingViolently)
 			{
 				WreckShit();
 			}
@@ -108,6 +108,7 @@ public class GameManager : MSingleton<GameManager>
         currentLevel = GetStartLevel();
 		menu.SetActive(false);
 		hud.SetActive(true);
+		paintGun.slider.gameObject.SetActive(false);
     }
 
     public void QuitGame()
@@ -187,7 +188,6 @@ public class GameManager : MSingleton<GameManager>
     {
         manState = ManModeState.PissingRainbows;
 		GameObject player = GameObject.Find("Player");
-		Debug.Log(player);
 		player.GetComponent<PlayerRedo>().canDie = false;
     }
 

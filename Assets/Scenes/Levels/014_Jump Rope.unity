@@ -1514,11 +1514,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controllable: 0
   speed: 6
-  gravity: 15
-  jumpHeight: 5
+  gravity: 20
+  jumpHeight: 6
   fallAirTime: .5
-  airbornControlAmount: .100000001
-  airDrag: .995000005
+  airbornControlAmount: .5
+  airDrag: .899999976
   canDie: 0
 --- !u!23 &714534506
 Renderer:
@@ -1915,7 +1915,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 17.7999992
+  orthographic size: 14
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2

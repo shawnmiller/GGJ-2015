@@ -126,6 +126,7 @@ public class ColorSwapper : MSingleton<ColorSwapper>
     void OnLevelWasLoaded(int level)
     {
         levelColors = GameObject.FindObjectOfType<LevelColors>();
+		GameManager.Instance.PaintGun = levelColors.GetColor(0);
         activeIndex = -1;
         SetActiveColor(-1);
     }
