@@ -57,7 +57,6 @@ public class Spawner : MonoBehaviour
 	{
 		GameObject obj = ProjectileManager.Instance.Spawn(transform.position);
 		Projectile proj = obj.GetComponent<Projectile>();
-        Debug.Log(info.speed);
         proj.Apply(info);
 	}
 }
