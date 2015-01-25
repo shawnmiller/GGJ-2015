@@ -28,7 +28,7 @@ public class GameManager : MSingleton<GameManager>
     public GameMode Mode
     { get { return mode; } }
 
-    private ManModeState manState;
+    private ManModeState manState = ManModeState.ScreamingViolently;
     public ManModeState ManState
     { get { return manState; } }
 
@@ -53,6 +53,17 @@ public class GameManager : MSingleton<GameManager>
 		get { return state.IsConnected; }
 	}
 
+	private PaintGun paintGun;
+	public PaintGun Painter
+	{
+		get { return paintGun; }
+	}
+
+	public ColorType PaintGun
+	{
+		get { return paintGun.cType; }
+		set { paintGun.cType = value; }
+	}
 
     void Awake()
     {
@@ -67,22 +78,33 @@ public class GameManager : MSingleton<GameManager>
 		hud.SetActive(false);
 		postLevel.SetActive(false);
 		pause.SetActive(false);
+
+		paintGun = GetComponent<PaintGun>();
     }
 
 	void Update()
 	{
 		// Run a global state in the game manager
 		state = GamePad.GetState(PlayerIndex.One);
+
+		if (state.Buttons.Start == ButtonState.Pressed || Input.GetKeyDown(KeyCode.Escape) && !menu.activeInHierarchy)
+		{
+			Pause();
+		}
+
+		if (mode == GameMode.ManMode)
+		{
+			if (state.Buttons.B == ButtonState.Pressed && manState != ManModeState.ScreamingViolently)
+			{
+				WreckShit();
+			}
+		}
 	}
 
     public void StartGame(int mode)
     {
         this.mode = (GameMode)mode;
 
-        if (this.mode == GameMode.ManMode)
-        {
-            manState = ManModeState.PissingRainbows;
-        }
         currentLevel = GetStartLevel();
 		menu.SetActive(false);
 		hud.SetActive(true);
@@ -101,6 +123,8 @@ public class GameManager : MSingleton<GameManager>
     {
         Time.timeScale = 0f;
         pause.SetActive(true);
+		EventSystem eventSys = GameObject.FindObjectOfType<EventSystem>();
+		eventSys.SetSelectedGameObject(pause.transform.GetChild(0).GetChild(0).gameObject);
     }
 
     public void Unpause()
@@ -115,6 +139,11 @@ public class GameManager : MSingleton<GameManager>
         currentLevel++;
         PlayerPrefs.SetInt(LEVEL_KEY, currentLevel);
 
+		if (GameManager.Instance.Mode == GameMode.ManMode)
+		{
+			paintGun.slider.value = 1f;
+		}
+
         hud.SetActive(false);
         postLevel.SetActive(true);
         EventSystem eventSys = GameObject.FindObjectOfType<EventSystem>();
@@ -123,15 +152,15 @@ public class GameManager : MSingleton<GameManager>
 
     public void LevelFailed()
     {
+		if (GameManager.Instance.Mode == GameMode.ManMode)
+		{
+			paintGun.slider.value = 1f;
+		}
         LoadLevel();
     }
 
     public void AdvanceLevel()
     {
-        if (mode == GameMode.ManMode)
-        {
-            manState = ManModeState.PissingRainbows;
-        }
 		postLevel.SetActive(false);
 		hud.SetActive(true);
         LoadLevel();
@@ -150,11 +179,16 @@ public class GameManager : MSingleton<GameManager>
     public void WreckShit()
     {
         manState = ManModeState.ScreamingViolently;
+		GameObject player = GameObject.Find("Player");
+		player.GetComponent<PlayerRedo>().canDie = true;
     }
 
     public void PissBreak()
     {
         manState = ManModeState.PissingRainbows;
+		GameObject player = GameObject.Find("Player");
+		Debug.Log(player);
+		player.GetComponent<PlayerRedo>().canDie = false;
     }
 
     private int GetStartLevel()
@@ -181,7 +215,10 @@ public class GameManager : MSingleton<GameManager>
         background = GameObject.Find("Weenie Mode Background");
         if (mode == GameMode.ManMode)
         {
-            GameObject.Destroy(background);
+			PissBreak();
+			background.SetActive(false);
+			background.collider.enabled = false;
+			paintGun.Initialize();
         }
     }
 

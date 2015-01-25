@@ -97,6 +97,11 @@ public class ColorSwapper : MSingleton<ColorSwapper>
 
         ColorType cType = levelColors.GetColor(color);
 
+		if (GameManager.Instance.ManState == ManModeState.PissingRainbows)
+		{
+			GameManager.Instance.PaintGun = cType;
+		}
+
         if (GameManager.Instance.Mode == GameMode.WeenieMode)
         {
             GameManager.Instance.Background.GetComponent<ActiveColorType>().Type = cType;

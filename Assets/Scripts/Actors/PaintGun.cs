@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
-using System.Collections;
-using XInputDotNetPure;
 using UnityEngine.UI;
+using XInputDotNetPure;
 
 public class PaintGun : MonoBehaviour
 {
@@ -25,24 +24,25 @@ public class PaintGun : MonoBehaviour
     private Vector3 lastSpawn;
     private int spawned;
 
+	public ColorType cType;
+
 	void Start()
 	{
-        cursorPosition = new Vector3(0.5f, 0.5f, 0f);
 		xButton = new KeyWatcher();
-        marker = new GameObject("Marker");
+	}
+
+	public void Initialize()
+	{
+		cursorPosition = new Vector3(0.5f, 0.5f, 0f);
+		marker = new GameObject("Marker");
 	}
 
 	void Update()
 	{
+        if (GameManager.Instance.ManState == ManModeState.ScreamingViolently) { return; }
+
 		GamePadState state = GameManager.Instance.State;
 		xButton.Update(state.Buttons.X);
-
-        if (state.Buttons.Start == ButtonState.Pressed)
-        {
-            if (GameManager.Instance.ManState == ManModeState.PissingRainbows) { GameManager.Instance.WreckShit(); }
-            else                                                               { GameManager.Instance.PissBreak(); }
-        }
-        if (GameManager.Instance.ManState == ManModeState.ScreamingViolently) { return; }
 
 		if (GameManager.Instance.IsConnected)
 		{
@@ -63,29 +63,39 @@ public class PaintGun : MonoBehaviour
 			marker.transform.position = temp;
 
             RaycastHit hit;
-            Physics.Raycast(marker.transform.position, Vector3.forward, out hit);
+			if (Physics.Raycast(marker.transform.position, Vector3.forward, out hit))
+			{
+				if (xButton.Pressed())
+				{
+					if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Background") && Vector3.Distance(hit.point, lastSpawn) > MIN_SPACING)
+					{
+						if (slider.value > 0)
+						{
+							GameObject instance = Instantiate(paintObject, hit.point, Quaternion.identity) as GameObject;
+							Vector3 newPos = instance.transform.position;
+							//newPos.z = -spawned * OFFSET;
+							instance.transform.position = newPos;
+							instance.GetComponent<ActiveColorType>().Type = cType;
 
-            if (xButton.Pressed())
-            {
-                if (hit.collider != null && Vector3.Distance(hit.point, lastSpawn) > MIN_SPACING && slider.value > 0)
-                {
-                    GameObject instance = Instantiate(paintObject, hit.point, Quaternion.identity) as GameObject;
-                    Vector3 newPos = instance.transform.position;
-                    newPos.z = -spawned * OFFSET;
-                    instance.transform.position = newPos;
-                    instance.renderer.material.color = (spawned % 2 == 0 ? Color.blue : Color.red);
+							slider.value = Mathf.Max(0f, slider.value - PAINT_AMOUNT);
 
-					slider.value = Mathf.Max(0f, slider.value - PAINT_AMOUNT);
-
-                    lastSpawn = instance.transform.position;
-                    ++spawned;
-                }
-            }
+							lastSpawn = instance.transform.position;
+							++spawned;
+						}
+						else
+						{
+							GameManager.Instance.WreckShit();
+						}
+					}
+				}
+			}
 		}
 	}
 
 	void OnGUI()
 	{
+		if (GameManager.Instance.ManState == ManModeState.ScreamingViolently) { return; }
+
         int x = Screen.width;
         int y = Screen.height;
         Rect dRect = new Rect(

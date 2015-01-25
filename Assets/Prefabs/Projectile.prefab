@@ -85,7 +85,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: .839999974, y: .839999974, z: .839999974}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &11421516
 MonoBehaviour:
@@ -110,7 +110,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotator: {fileID: 190036, guid: 6c036fa65c6583f45a2d247f90217e43, type: 2}
-  normal: {fileID: 2800000, guid: 58cf52955054bd3438313c835a8eb65e, type: 3}
+  normal: {fileID: 2800000, guid: 454cba638d35cd6498997c5509f39014, type: 3}
   blend: {fileID: 2800000, guid: 496283fe18aa7ba4aa459b97d8dc82dd, type: 3}
 --- !u!1001 &100100000
 Prefab:

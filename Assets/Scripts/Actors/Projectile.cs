@@ -87,7 +87,7 @@ public class Projectile : MonoBehaviour
 
 	void OnTriggerStay(Collider other)
 	{
-		if (canKill && other.tag == "Player")
+		if (other.tag == "Player" && other.GetComponent<PlayerRedo>().canDie && canKill)
 		{
 			Debug.Log("Hit Player");
 			GameManager.Instance.LevelFailed();
@@ -165,8 +165,9 @@ public class Projectile : MonoBehaviour
     private void CheckKillStatus()
     {
 		if (GameManager.Instance.LevelCompleted) { canKill = false; }
+
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, Vector3.forward, out hit, 100f, 1 << LayerMask.NameToLayer("Background")))
+        if (Physics.Raycast(transform.position, Vector3.forward, out hit, 100f, 1 << LayerMask.NameToLayer("Background") | 1 << LayerMask.NameToLayer("PaintObject")))
         {
             ActiveColorType aCType = hit.collider.GetComponent<ActiveColorType>();
             if (aCType && aCType.Type == colorType)

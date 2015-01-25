@@ -33,6 +33,8 @@ public class PlayerRedo : MonoBehaviour
 
     private float lastJumpDown;
 
+	public bool canDie;
+
     void Start()
     {
         controller = GetComponent<CharacterController>();
@@ -43,8 +45,12 @@ public class PlayerRedo : MonoBehaviour
 
 	void Update()
 	{
+
+		if (GameManager.Instance.ManState == ManModeState.PissingRainbows) { return; }
+
 		if (controllable)
 		{
+			canDie = true;
 			GamePadState state = GameManager.Instance.State;
 
 			Vector3 input = Vector3.zero;

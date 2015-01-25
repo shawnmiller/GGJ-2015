@@ -170,6 +170,7 @@ MonoBehaviour:
     startPoint: 0
     destroyOnCollide: 0
     permanent: 0
+    reversed: 0
   preLoad: 1
 --- !u!4 &47578419
 Transform:
@@ -286,7 +287,7 @@ GameObject:
   - 33: {fileID: 153819303}
   - 65: {fileID: 153819302}
   - 23: {fileID: 153819301}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Terrrain
   m_TagString: Terrain
   m_Icon: {fileID: 0}
@@ -358,7 +359,7 @@ GameObject:
   - 33: {fileID: 165800513}
   - 65: {fileID: 165800512}
   - 23: {fileID: 165800511}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Terrrain
   m_TagString: Terrain
   m_Icon: {fileID: 0}
@@ -493,7 +494,7 @@ GameObject:
   - 33: {fileID: 175434567}
   - 65: {fileID: 175434566}
   - 23: {fileID: 175434565}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Terrrain
   m_TagString: Terrain
   m_Icon: {fileID: 0}
@@ -942,7 +943,7 @@ GameObject:
   - 33: {fileID: 313116178}
   - 65: {fileID: 313116177}
   - 23: {fileID: 313116176}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Terrrain
   m_TagString: Terrain
   m_Icon: {fileID: 0}
@@ -1014,7 +1015,7 @@ GameObject:
   - 33: {fileID: 334241038}
   - 65: {fileID: 334241037}
   - 23: {fileID: 334241036}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Terrrain
   m_TagString: Terrain
   m_Icon: {fileID: 0}
@@ -1115,6 +1116,7 @@ MonoBehaviour:
     startPoint: 0
     destroyOnCollide: 0
     permanent: 0
+    reversed: 0
   preLoad: 1
 --- !u!4 &380440417
 Transform:
@@ -1199,7 +1201,7 @@ GameObject:
   - 33: {fileID: 451065946}
   - 65: {fileID: 451065945}
   - 23: {fileID: 451065944}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Terrrain
   m_TagString: Terrain
   m_Icon: {fileID: 0}
@@ -1392,6 +1394,7 @@ MonoBehaviour:
     startPoint: 0
     destroyOnCollide: 0
     permanent: 0
+    reversed: 0
   preLoad: 1
 --- !u!4 &504487845
 Transform:
@@ -1457,7 +1460,7 @@ GameObject:
   - 33: {fileID: 606458983}
   - 65: {fileID: 606458982}
   - 23: {fileID: 606458981}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Terrrain
   m_TagString: Terrain
   m_Icon: {fileID: 0}
@@ -1558,6 +1561,7 @@ MonoBehaviour:
     startPoint: 0
     destroyOnCollide: 0
     permanent: 0
+    reversed: 0
   preLoad: 1
 --- !u!4 &609682543
 Transform:
@@ -1611,6 +1615,7 @@ MonoBehaviour:
     startPoint: 0
     destroyOnCollide: 0
     permanent: 0
+    reversed: 0
   preLoad: 1
 --- !u!4 &675003691
 Transform:
@@ -1635,7 +1640,7 @@ GameObject:
   - 33: {fileID: 695584851}
   - 65: {fileID: 695584850}
   - 23: {fileID: 695584849}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Terrrain
   m_TagString: Terrain
   m_Icon: {fileID: 0}
@@ -1795,7 +1800,7 @@ GameObject:
   - 33: {fileID: 761608440}
   - 65: {fileID: 761608439}
   - 23: {fileID: 761608438}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Terrrain
   m_TagString: Terrain
   m_Icon: {fileID: 0}
@@ -1856,6 +1861,50 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!1001 &841070340
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 430294, guid: 5cf0213d806da614d8d67acfab75dd16, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 430294, guid: 5cf0213d806da614d8d67acfab75dd16, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 430294, guid: 5cf0213d806da614d8d67acfab75dd16, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 430294, guid: 5cf0213d806da614d8d67acfab75dd16, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 430294, guid: 5cf0213d806da614d8d67acfab75dd16, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 430294, guid: 5cf0213d806da614d8d67acfab75dd16, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 430294, guid: 5cf0213d806da614d8d67acfab75dd16, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 430294, guid: 5cf0213d806da614d8d67acfab75dd16, type: 2}
+      propertyPath: m_RootOrder
+      value: 46
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 5cf0213d806da614d8d67acfab75dd16, type: 2}
+  m_RootGameObject: {fileID: 1361588997}
+  m_IsPrefabParent: 0
+  m_IsExploded: 1
 --- !u!1001 &875465389
 Prefab:
   m_ObjectHideFlags: 0
@@ -1963,7 +2012,7 @@ GameObject:
   - 33: {fileID: 929217772}
   - 65: {fileID: 929217771}
   - 23: {fileID: 929217770}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Terrrain
   m_TagString: Terrain
   m_Icon: {fileID: 0}
@@ -2139,7 +2188,7 @@ GameObject:
   - 33: {fileID: 992413221}
   - 65: {fileID: 992413220}
   - 23: {fileID: 992413219}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Terrrain
   m_TagString: Terrain
   m_Icon: {fileID: 0}
@@ -2303,7 +2352,7 @@ GameObject:
   - 33: {fileID: 1108474787}
   - 65: {fileID: 1108474786}
   - 23: {fileID: 1108474785}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Terrrain
   m_TagString: Terrain
   m_Icon: {fileID: 0}
@@ -2503,7 +2552,7 @@ GameObject:
   - 33: {fileID: 1126998290}
   - 65: {fileID: 1126998289}
   - 23: {fileID: 1126998288}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Terrrain
   m_TagString: Terrain
   m_Icon: {fileID: 0}
@@ -2652,6 +2701,7 @@ MonoBehaviour:
     startPoint: 0
     destroyOnCollide: 0
     permanent: 0
+    reversed: 0
   preLoad: 1
 --- !u!4 &1158137569
 Transform:
@@ -2736,7 +2786,7 @@ GameObject:
   - 33: {fileID: 1201802113}
   - 65: {fileID: 1201802112}
   - 23: {fileID: 1201802111}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Terrrain
   m_TagString: Terrain
   m_Icon: {fileID: 0}
@@ -2972,7 +3022,7 @@ GameObject:
   - 33: {fileID: 1260387831}
   - 65: {fileID: 1260387830}
   - 23: {fileID: 1260387829}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Terrrain
   m_TagString: Terrain
   m_Icon: {fileID: 0}
@@ -3092,7 +3142,7 @@ GameObject:
   - 33: {fileID: 1360317795}
   - 65: {fileID: 1360317794}
   - 23: {fileID: 1360317793}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Terrrain
   m_TagString: Terrain
   m_Icon: {fileID: 0}
@@ -3153,6 +3203,56 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 43
+--- !u!1 &1361588997
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 130294, guid: 5cf0213d806da614d8d67acfab75dd16, type: 2}
+  m_PrefabInternal: {fileID: 841070340}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1361589000}
+  - 33: {fileID: 1361588999}
+  - 65: {fileID: 1361588998}
+  m_Layer: 9
+  m_Name: Man Background
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &1361588998
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 6530294, guid: 5cf0213d806da614d8d67acfab75dd16,
+    type: 2}
+  m_PrefabInternal: {fileID: 841070340}
+  m_GameObject: {fileID: 1361588997}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!33 &1361588999
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 3330294, guid: 5cf0213d806da614d8d67acfab75dd16,
+    type: 2}
+  m_PrefabInternal: {fileID: 841070340}
+  m_GameObject: {fileID: 1361588997}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &1361589000
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 430294, guid: 5cf0213d806da614d8d67acfab75dd16, type: 2}
+  m_PrefabInternal: {fileID: 841070340}
+  m_GameObject: {fileID: 1361588997}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 2}
+  m_LocalScale: {x: 50, y: 50, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 46
 --- !u!1 &1399957455
 GameObject:
   m_ObjectHideFlags: 0
@@ -3193,6 +3293,7 @@ MonoBehaviour:
     startPoint: 0
     destroyOnCollide: 0
     permanent: 0
+    reversed: 0
   preLoad: 1
 --- !u!4 &1399957457
 Transform:
@@ -3321,7 +3422,7 @@ GameObject:
   - 33: {fileID: 1448031011}
   - 65: {fileID: 1448031010}
   - 23: {fileID: 1448031009}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Terrrain
   m_TagString: Terrain
   m_Icon: {fileID: 0}
@@ -3437,7 +3538,7 @@ GameObject:
   - 33: {fileID: 1508890241}
   - 65: {fileID: 1508890240}
   - 23: {fileID: 1508890239}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Terrrain
   m_TagString: Terrain
   m_Icon: {fileID: 0}
@@ -3569,7 +3670,7 @@ GameObject:
   - 33: {fileID: 1557288742}
   - 65: {fileID: 1557288741}
   - 23: {fileID: 1557288740}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Terrrain
   m_TagString: Terrain
   m_Icon: {fileID: 0}
@@ -3689,7 +3790,7 @@ GameObject:
   - 33: {fileID: 1638464084}
   - 65: {fileID: 1638464083}
   - 23: {fileID: 1638464082}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Terrrain
   m_TagString: Terrain
   m_Icon: {fileID: 0}
@@ -3865,7 +3966,7 @@ GameObject:
   - 33: {fileID: 1692799367}
   - 65: {fileID: 1692799366}
   - 23: {fileID: 1692799365}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Terrrain
   m_TagString: Terrain
   m_Icon: {fileID: 0}
@@ -3937,7 +4038,7 @@ GameObject:
   - 33: {fileID: 1693776424}
   - 65: {fileID: 1693776423}
   - 23: {fileID: 1693776422}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Terrrain
   m_TagString: Terrain
   m_Icon: {fileID: 0}
@@ -4057,7 +4158,7 @@ GameObject:
   - 33: {fileID: 1697614280}
   - 65: {fileID: 1697614279}
   - 23: {fileID: 1697614278}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Terrrain
   m_TagString: Terrain
   m_Icon: {fileID: 0}
@@ -4217,7 +4318,7 @@ GameObject:
   - 33: {fileID: 1753808200}
   - 65: {fileID: 1753808199}
   - 23: {fileID: 1753808198}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Terrrain
   m_TagString: Terrain
   m_Icon: {fileID: 0}
@@ -4471,7 +4572,7 @@ GameObject:
   - 33: {fileID: 1890785258}
   - 65: {fileID: 1890785257}
   - 23: {fileID: 1890785256}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Terrrain
   m_TagString: Terrain
   m_Icon: {fileID: 0}
@@ -4572,6 +4673,7 @@ MonoBehaviour:
     startPoint: 0
     destroyOnCollide: 0
     permanent: 0
+    reversed: 0
   preLoad: 1
 --- !u!4 &1951706069
 Transform:
@@ -4640,7 +4742,7 @@ GameObject:
   - 33: {fileID: 1952996531}
   - 65: {fileID: 1952996530}
   - 23: {fileID: 1952996529}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Terrrain
   m_TagString: Terrain
   m_Icon: {fileID: 0}
@@ -4712,7 +4814,7 @@ GameObject:
   - 33: {fileID: 1955252220}
   - 65: {fileID: 1955252219}
   - 23: {fileID: 1955252218}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Terrrain
   m_TagString: Terrain
   m_Icon: {fileID: 0}
@@ -4813,6 +4915,7 @@ MonoBehaviour:
     startPoint: 0
     destroyOnCollide: 0
     permanent: 0
+    reversed: 0
   preLoad: 1
 --- !u!4 &1962837001
 Transform:
@@ -4837,7 +4940,7 @@ GameObject:
   - 33: {fileID: 1982761142}
   - 65: {fileID: 1982761141}
   - 23: {fileID: 1982761140}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Terrrain
   m_TagString: Terrain
   m_Icon: {fileID: 0}
@@ -4909,7 +5012,7 @@ GameObject:
   - 33: {fileID: 2001263533}
   - 65: {fileID: 2001263532}
   - 23: {fileID: 2001263531}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Terrrain
   m_TagString: Terrain
   m_Icon: {fileID: 0}
@@ -4981,7 +5084,7 @@ GameObject:
   - 33: {fileID: 2030210684}
   - 65: {fileID: 2030210683}
   - 23: {fileID: 2030210682}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Terrrain
   m_TagString: Terrain
   m_Icon: {fileID: 0}
@@ -5193,7 +5296,7 @@ GameObject:
   - 33: {fileID: 2099557183}
   - 65: {fileID: 2099557182}
   - 23: {fileID: 2099557181}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Terrrain
   m_TagString: Terrain
   m_Icon: {fileID: 0}
@@ -5264,8 +5367,8 @@ GameObject:
   - 4: {fileID: 2099669404}
   - 33: {fileID: 2099669403}
   - 23: {fileID: 2099669402}
-  - 143: {fileID: 2099669401}
-  - 114: {fileID: 2099669400}
+  - 114: {fileID: 2099669401}
+  - 143: {fileID: 2099669400}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -5273,37 +5376,41 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &2099669400
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11434918, guid: bbb7e753208597f4b8aa224c61863d77,
-    type: 2}
-  m_PrefabInternal: {fileID: 1486372617}
-  m_GameObject: {fileID: 2099669399}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c58f411d0b236ac4bb01d31ded56cb68, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 6
-  gravity: 15
-  jumpStrength: 6
-  canMove: 1
---- !u!143 &2099669401
+--- !u!143 &2099669400
 CharacterController:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 14374678, guid: bbb7e753208597f4b8aa224c61863d77,
+  m_PrefabParentObject: {fileID: 14360628, guid: bbb7e753208597f4b8aa224c61863d77,
     type: 2}
   m_PrefabInternal: {fileID: 1486372617}
   m_GameObject: {fileID: 2099669399}
   serializedVersion: 2
   m_Height: 2
-  m_Radius: .300000012
+  m_Radius: .400000006
   m_SlopeLimit: 45
   m_StepOffset: .300000012
-  m_SkinWidth: .00999999978
+  m_SkinWidth: .0799999982
   m_MinMoveDistance: 0
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2099669401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11438300, guid: bbb7e753208597f4b8aa224c61863d77,
+    type: 2}
+  m_PrefabInternal: {fileID: 1486372617}
+  m_GameObject: {fileID: 2099669399}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05590e33e5bf98d4e887ade14876fa42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controllable: 0
+  speed: 6
+  gravity: 15
+  jumpHeight: 5
+  fallAirTime: .5
+  airbornControlAmount: .100000001
+  airDrag: .995000005
+  canDie: 0
 --- !u!23 &2099669402
 Renderer:
   m_ObjectHideFlags: 0
