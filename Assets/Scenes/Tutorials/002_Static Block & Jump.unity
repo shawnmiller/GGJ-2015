@@ -221,7 +221,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
 --- !u!1001 &691276012
 Prefab:
   m_ObjectHideFlags: 0
@@ -329,7 +329,7 @@ GameObject:
   - 33: {fileID: 812057845}
   - 65: {fileID: 812057844}
   - 23: {fileID: 812057843}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Terrrain
   m_TagString: Terrain
   m_Icon: {fileID: 0}
@@ -858,8 +858,8 @@ GameObject:
   - 4: {fileID: 1857841057}
   - 33: {fileID: 1857841056}
   - 23: {fileID: 1857841055}
-  - 143: {fileID: 1857841054}
-  - 114: {fileID: 1857841053}
+  - 114: {fileID: 1857841054}
+  - 143: {fileID: 1857841053}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -867,10 +867,25 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1857841053
+--- !u!143 &1857841053
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 14360628, guid: bbb7e753208597f4b8aa224c61863d77,
+    type: 2}
+  m_PrefabInternal: {fileID: 1630438051}
+  m_GameObject: {fileID: 1857841052}
+  serializedVersion: 2
+  m_Height: 2
+  m_Radius: .400000006
+  m_SlopeLimit: 45
+  m_StepOffset: .300000012
+  m_SkinWidth: .0799999982
+  m_MinMoveDistance: 0
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1857841054
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11434918, guid: bbb7e753208597f4b8aa224c61863d77,
+  m_PrefabParentObject: {fileID: 11438300, guid: bbb7e753208597f4b8aa224c61863d77,
     type: 2}
   m_PrefabInternal: {fileID: 1630438051}
   m_GameObject: {fileID: 1857841052}
@@ -880,24 +895,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 6
-  gravity: 15
-  jumpStrength: 6
+  gravity: 10
+  jumpStrength: 4
   canMove: 1
---- !u!143 &1857841054
-CharacterController:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 14374678, guid: bbb7e753208597f4b8aa224c61863d77,
-    type: 2}
-  m_PrefabInternal: {fileID: 1630438051}
-  m_GameObject: {fileID: 1857841052}
-  serializedVersion: 2
-  m_Height: 2
-  m_Radius: .300000012
-  m_SlopeLimit: 45
-  m_StepOffset: .300000012
-  m_SkinWidth: .00999999978
-  m_MinMoveDistance: 0
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1857841055
 Renderer:
   m_ObjectHideFlags: 0
@@ -938,7 +938,7 @@ Transform:
   m_LocalScale: {x: .600000024, y: .400000006, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
 --- !u!1001 &1953925997
 Prefab:
   m_ObjectHideFlags: 0
@@ -994,7 +994,7 @@ GameObject:
   - 33: {fileID: 2094255219}
   - 65: {fileID: 2094255218}
   - 23: {fileID: 2094255217}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Terrrain
   m_TagString: Terrain
   m_Icon: {fileID: 0}
