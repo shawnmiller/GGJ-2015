@@ -25,6 +25,11 @@ public class GameManager : MSingleton<GameManager>
     public GameObject Background
     { get { return background; } }
 
+	private bool levelCompleted;
+	public bool LevelCompleted
+	{
+		get { return levelCompleted; }
+	}
 
     void Awake()
     {
@@ -72,6 +77,7 @@ public class GameManager : MSingleton<GameManager>
 
     public void LevelComplete()
     {
+		levelCompleted = true;
         currentLevel++;
         PlayerPrefs.SetInt(LEVEL_KEY, currentLevel);
 
@@ -117,6 +123,7 @@ public class GameManager : MSingleton<GameManager>
 
     private void LoadLevel()
     {
+		levelCompleted = false;
         Application.LoadLevel(currentLevel);
     }
 
@@ -140,6 +147,7 @@ public class GameManager : MSingleton<GameManager>
 
 		currentLevel = level;
 		menu.SetActive(false);
+		hud.SetActive(true);
 		LoadLevel();
 	}
 }

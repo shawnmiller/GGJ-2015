@@ -8,7 +8,6 @@ public class ColorSwapper : MSingleton<ColorSwapper>
     private static Color DISABLED = new Color(1f, 1f, 1f, 0f);
     private static Color HIGHLIGHT = new Color(1f, 1f, 1f, 0.2f);
     private LevelColors levelColors;
-    //private ColorType activeColor;
     private Transform hud;
 
     private int activeIndex;
@@ -49,6 +48,20 @@ public class ColorSwapper : MSingleton<ColorSwapper>
         else if (lTrigger.Pressed()) { SetActiveColor(2); }
         else if (rTrigger.Pressed()) { SetActiveColor(3); }
         else { SetActiveColor(-1); }
+
+		for (int i = 0; i < 4; i++)
+		{
+			if (i == activeIndex)
+			{
+				Image current = hud.GetChild(i).GetComponent<Image>();
+				current.color = HIGHLIGHT;
+			}
+			else
+			{
+				Image previous = hud.GetChild(i).GetComponent<Image>();
+				previous.color = DISABLED;
+			}
+		}
     }
 
     public void SetActiveColor(int color)
@@ -64,16 +77,15 @@ public class ColorSwapper : MSingleton<ColorSwapper>
 
         if (cType != LevelColors.NONEXIST)
         {
-            //activeColor = cType;
 
-			if (activeIndex != -1)
+			/*if (activeIndex != -1)
 			{
 				Image previous = hud.GetChild(activeIndex).GetComponent<Image>();
 				previous.color = DISABLED;
 			}
 
 			Image current = hud.GetChild(color).GetComponent<Image>();
-			current.color = HIGHLIGHT;
+			current.color = HIGHLIGHT;*/
         }
 
 		activeIndex = color;

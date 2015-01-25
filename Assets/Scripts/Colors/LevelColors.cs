@@ -25,7 +25,6 @@ public class LevelColors : MonoBehaviour
                     Image image = hud.transform.GetChild(i).GetChild(0).GetComponent<Image>();
                     image.enabled = true;
                     image.color = PickColor.Get(colors[i]);
-                    Debug.Log(colors[i]);
                 }
                 else
                 {

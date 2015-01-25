@@ -149,6 +149,7 @@ public class Projectile : MonoBehaviour
 
     private void CheckKillStatus()
     {
+		if (GameManager.Instance.LevelCompleted) { canKill = false; }
         RaycastHit hit;
         if (Physics.Raycast(transform.position, Vector3.forward, out hit, 100f, 1 << LayerMask.NameToLayer("Background")))
         {
