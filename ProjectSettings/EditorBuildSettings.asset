@@ -29,3 +29,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Levels/010_Timed Fall.unity
   - enabled: 1
     path: Assets/Scenes/Levels/011_Color Sequence.unity
+  - enabled: 1
+    path: Assets/Scenes/Levels/012_Up And Over.unity
+  - enabled: 1
+    path: Assets/Scenes/Levels/013_Factory.unity
+  - enabled: 1
+    path: Assets/Scenes/Levels/014_Jump Rope.unity
