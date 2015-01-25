@@ -127,7 +127,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11402682, guid: 65b009ff99baf114da2a86f08d7f5e71, type: 2}
       propertyPath: colors.Array.data[3]
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 65b009ff99baf114da2a86f08d7f5e71, type: 2}
@@ -392,7 +392,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: deb94f83749d1d84b93e889c68c99feb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colors: 00000000010000000200000004000000
+  colors: 00000000010000000200000003000000
 --- !u!4 &366949889
 Transform:
   m_ObjectHideFlags: 0
@@ -1141,13 +1141,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 1218998740}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c58f411d0b236ac4bb01d31ded56cb68, type: 3}
+  m_Script: {fileID: 11500000, guid: 05590e33e5bf98d4e887ade14876fa42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 6
+  controllable: 0
+  speed: 6
   gravity: 10
-  jumpStrength: 4
-  canMove: 1
+  jumpHeight: 6
+  fallAirTime: .5
+  airbornControlAmount: .0199999996
+  airDrag: .999000013
 --- !u!23 &1218998744
 Renderer:
   m_ObjectHideFlags: 0

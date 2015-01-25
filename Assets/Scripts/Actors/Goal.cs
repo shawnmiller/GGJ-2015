@@ -7,7 +7,7 @@ public class Goal : MonoBehaviour
 	{
 		if (other.tag == "Player")
 		{
-			other.GetComponent<Player>().canMove = false;
+			other.GetComponent<PlayerRedo>().controllable = false;
 			GameManager.Instance.LevelComplete();
 		}
 	}

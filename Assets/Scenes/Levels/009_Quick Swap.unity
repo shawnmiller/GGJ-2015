@@ -339,13 +339,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 354022238}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c58f411d0b236ac4bb01d31ded56cb68, type: 3}
+  m_Script: {fileID: 11500000, guid: 05590e33e5bf98d4e887ade14876fa42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 6
-  gravity: 10
-  jumpStrength: 4
-  canMove: 1
+  controllable: 0
+  speed: 6
+  gravity: 15
+  jumpHeight: 5
+  fallAirTime: .5
+  airbornControlAmount: .100000001
+  airDrag: .995000005
 --- !u!23 &354022241
 Renderer:
   m_ObjectHideFlags: 0
@@ -739,7 +742,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11446262, guid: 765e404041ebf02418e819369fad3c10, type: 2}
       propertyPath: info.scale.x
-      value: 6
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 11446262, guid: 765e404041ebf02418e819369fad3c10, type: 2}
       propertyPath: info.scale.y
@@ -1060,7 +1063,7 @@ MonoBehaviour:
   info:
     direction: {x: 0, y: 0}
     speed: 0
-    scale: {x: 6, y: 1, z: 0}
+    scale: {x: 8, y: 1, z: 0}
     color: 0
     path: 0
     centerOffset: 0
