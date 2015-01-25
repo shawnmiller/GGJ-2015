@@ -14,7 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Tutorials/003_Stationary Color Block.unity
   - enabled: 1
-    path: Assets/Scenes/Tutorials/004_Moving Colored Block.unity
+    path: Assets/Scenes/Tutorials/004_First Use Mech.unity
   - enabled: 1
     path: Assets/Scenes/Tutorials/005_Multiple Colored Blocks.unity
   - enabled: 1

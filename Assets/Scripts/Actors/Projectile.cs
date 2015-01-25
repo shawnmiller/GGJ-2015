@@ -59,24 +59,6 @@ public class Projectile : MonoBehaviour
 	}
 
     private PathType pathType;
-    public PathType PathType
-    {
-        get { return pathType; }
-        set
-        {
-            pathType = value;
-            if (pathType == PathType.Linear) { updateMethod = MoveLinear; }
-            else if (pathType == PathType.Circular)
-            {
-                updateMethod = MoveCircular;
-                centerPoint = transform.position;
-                personalRotator = Instantiate(rotator, centerPoint, Quaternion.identity) as Transform;
-                personalRotator.Rotate(new Vector3(0, 0, 360f * startPoint), Space.World);
-                MatchToRotator();
-            }
-            else if (pathType == PathType.Squarical) { updateMethod = MoveSquarical; }
-        }
-    }
 
     private float centerOffset;
     public float CenterOffset
@@ -86,11 +68,9 @@ public class Projectile : MonoBehaviour
     }
 
     private Vector3 centerPoint;
-    private float startPoint;
 
     private bool canKill;
 
-    private LeanTween cTween;
     private Vector3[] tweenPoints;
     private int tweenA;
     private int tweenB;
@@ -123,7 +103,6 @@ public class Projectile : MonoBehaviour
         this.wasVisible = false;
         this.velocity = info.direction;
         this.moveSpeed = info.speed;
-        Debug.Log(info.speed);
         this.Scaler = info.scale;
         this.ColorType = info.color;
         this.destroyOnCollide = info.destroyOnCollide;
@@ -133,13 +112,16 @@ public class Projectile : MonoBehaviour
 
     private void MoveLinear()
     {
-        transform.position += transform.TransformDirection(velocity) * moveSpeed * Time.deltaTime;
+		if (!permanent)
+		{
+			transform.position += transform.TransformDirection(velocity) * moveSpeed * Time.deltaTime;
 
-        if (!permanent && (wasVisible && !renderer.isVisible))
-        {
-            gameObject.GetComponent<PooledObject>().ReturnToPool();
-        }
-        wasVisible = renderer.isVisible;
+			if (wasVisible && !renderer.isVisible)
+			{
+				gameObject.GetComponent<PooledObject>().ReturnToPool();
+			}
+			wasVisible = renderer.isVisible;
+		}
     }
 
     private void MoveCircular()
@@ -211,7 +193,7 @@ public class Projectile : MonoBehaviour
             updateMethod = MoveCircular;
             centerPoint = transform.position;
             personalRotator = ((GameObject)Instantiate(rotator, centerPoint, Quaternion.identity)).transform;
-            personalRotator.Rotate(new Vector3(0, 0, 360f * startPoint), Space.World);
+            personalRotator.Rotate(new Vector3(0, 0, 360f * info.startPoint), Space.World);
             personalRotator.GetChild(0).localPosition = Vector3.up * info.centerOffset;
             MatchToRotator();
         }
