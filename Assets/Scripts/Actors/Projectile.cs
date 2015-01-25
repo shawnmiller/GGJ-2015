@@ -3,7 +3,10 @@ using System;
 
 public class Projectile : MonoBehaviour
 {
-    private Action updateMethod;
+    private Action updateMethod = () => { };
+
+    public GameObject rotator;
+    private Transform personalRotator;
 
     public Texture2D normal;
     public Texture2D blend;
@@ -63,7 +66,14 @@ public class Projectile : MonoBehaviour
         {
             pathType = value;
             if (pathType == PathType.Linear) { updateMethod = MoveLinear; }
-            else if (pathType == PathType.Circular) { updateMethod = MoveCircular; }
+            else if (pathType == PathType.Circular)
+            {
+                updateMethod = MoveCircular;
+                centerPoint = transform.position;
+                personalRotator = Instantiate(rotator, centerPoint, Quaternion.identity) as Transform;
+                personalRotator.Rotate(new Vector3(0, 0, 360f * startPoint), Space.World);
+                MatchToRotator();
+            }
             else if (pathType == PathType.Squarical) { updateMethod = MoveSquarical; }
         }
     }
@@ -74,6 +84,9 @@ public class Projectile : MonoBehaviour
         get { return centerOffset; }
         set { centerOffset = value; }
     }
+
+    private Vector3 centerPoint;
+    private float startPoint;
 
     private bool canKill;
 
@@ -105,7 +118,8 @@ public class Projectile : MonoBehaviour
         this.ColorType = info.color;
         this.destroyOnCollide = info.destroyOnCollide;
         this.permanent = info.permanent;
-        this.pathType = info.path;
+        this.startPoint = Mathf.Clamp(info.startPoint, 0f, 1f);
+        this.PathType = info.path;
     }
 
     private void MoveLinear()
@@ -120,12 +134,17 @@ public class Projectile : MonoBehaviour
 
     private void MoveCircular()
     {
-
+        
     }
 
     private void MoveSquarical()
     {
 
+    }
+
+    private void MatchToRotator()
+    {
+        transform.position = personalRotator.GetChild(0).position;
     }
 
     private void CheckKillStatus()
