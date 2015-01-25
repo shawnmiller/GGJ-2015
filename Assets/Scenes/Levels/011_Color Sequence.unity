@@ -200,6 +200,7 @@ MonoBehaviour:
     startPoint: 0
     destroyOnCollide: 0
     permanent: 0
+    reversed: 0
   preLoad: 1
 --- !u!4 &113975437
 Transform:
@@ -321,6 +322,7 @@ MonoBehaviour:
     startPoint: 0
     destroyOnCollide: 0
     permanent: 0
+    reversed: 0
   preLoad: 1
 --- !u!4 &300422158
 Transform:
@@ -541,7 +543,7 @@ GameObject:
   - 33: {fileID: 817760643}
   - 65: {fileID: 817760642}
   - 23: {fileID: 817760641}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Terrrain
   m_TagString: Terrain
   m_Icon: {fileID: 0}
@@ -719,7 +721,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11446262, guid: 765e404041ebf02418e819369fad3c10, type: 2}
       propertyPath: info.color
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 11446262, guid: 765e404041ebf02418e819369fad3c10, type: 2}
       propertyPath: info.direction.x
@@ -857,12 +859,13 @@ MonoBehaviour:
     direction: {x: 1, y: 0}
     speed: .5
     scale: {x: 1, y: 3, z: 0}
-    color: 3
+    color: 4
     path: 0
     centerOffset: 0
     startPoint: 0
     destroyOnCollide: 0
     permanent: 0
+    reversed: 0
   preLoad: 1
 --- !u!4 &1173044592
 Transform:
@@ -1028,6 +1031,7 @@ MonoBehaviour:
     startPoint: 0
     destroyOnCollide: 0
     permanent: 0
+    reversed: 0
   preLoad: 1
 --- !u!4 &1540804273
 Transform:
@@ -1203,8 +1207,8 @@ GameObject:
   - 4: {fileID: 1878919257}
   - 33: {fileID: 1878919256}
   - 23: {fileID: 1878919255}
-  - 143: {fileID: 1878919254}
-  - 114: {fileID: 1878919253}
+  - 114: {fileID: 1878919254}
+  - 143: {fileID: 1878919253}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -1212,10 +1216,25 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1878919253
+--- !u!143 &1878919253
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 14360628, guid: bbb7e753208597f4b8aa224c61863d77,
+    type: 2}
+  m_PrefabInternal: {fileID: 1273294082}
+  m_GameObject: {fileID: 1878919252}
+  serializedVersion: 2
+  m_Height: 2
+  m_Radius: .400000006
+  m_SlopeLimit: 45
+  m_StepOffset: .300000012
+  m_SkinWidth: .0799999982
+  m_MinMoveDistance: 0
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1878919254
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11434918, guid: bbb7e753208597f4b8aa224c61863d77,
+  m_PrefabParentObject: {fileID: 11438300, guid: bbb7e753208597f4b8aa224c61863d77,
     type: 2}
   m_PrefabInternal: {fileID: 1273294082}
   m_GameObject: {fileID: 1878919252}
@@ -1225,24 +1244,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 6
-  gravity: 15
-  jumpStrength: 6
+  gravity: 10
+  jumpStrength: 4
   canMove: 1
---- !u!143 &1878919254
-CharacterController:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 14374678, guid: bbb7e753208597f4b8aa224c61863d77,
-    type: 2}
-  m_PrefabInternal: {fileID: 1273294082}
-  m_GameObject: {fileID: 1878919252}
-  serializedVersion: 2
-  m_Height: 2
-  m_Radius: .300000012
-  m_SlopeLimit: 45
-  m_StepOffset: .300000012
-  m_SkinWidth: .00999999978
-  m_MinMoveDistance: 0
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1878919255
 Renderer:
   m_ObjectHideFlags: 0
@@ -1432,6 +1436,7 @@ MonoBehaviour:
     startPoint: 0
     destroyOnCollide: 0
     permanent: 0
+    reversed: 0
   preLoad: 1
 --- !u!4 &2117347853
 Transform:
