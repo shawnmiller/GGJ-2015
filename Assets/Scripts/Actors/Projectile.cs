@@ -96,6 +96,8 @@ public class Projectile : MonoBehaviour
     private int tweenB;
     private float tweenValue;
 
+    private bool wasVisible;
+
 	void Update()
 	{
         updateMethod();
@@ -118,6 +120,7 @@ public class Projectile : MonoBehaviour
 
     public void Apply(ProjectileInfo info)
     {
+        this.wasVisible = false;
         this.velocity = info.direction;
         this.moveSpeed = info.speed;
         Debug.Log(info.speed);
@@ -132,10 +135,11 @@ public class Projectile : MonoBehaviour
     {
         transform.position += transform.TransformDirection(velocity) * moveSpeed * Time.deltaTime;
 
-        if (!permanent && !renderer.isVisible)
+        if (!permanent && (wasVisible && !renderer.isVisible))
         {
             gameObject.GetComponent<PooledObject>().ReturnToPool();
         }
+        wasVisible = renderer.isVisible;
     }
 
     private void MoveCircular()
