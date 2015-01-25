@@ -1,9 +1,11 @@
 ﻿public enum ColorType
 {
-	Red,
+	Red = 0,
 	Green,
 	Blue,
 	Purple,
 	Orange,
-	Black
+	Black,
+    RandomAll,
+    RandomAvoidable
 }
