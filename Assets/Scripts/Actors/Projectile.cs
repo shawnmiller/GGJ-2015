@@ -135,13 +135,26 @@ public class Projectile : MonoBehaviour
 
     private void MoveSquarical()
     {
-        tweenValue += moveSpeed * Time.deltaTime;
-        if (tweenValue > 1f)
+        if (!reversed)
         {
-            tweenValue -= 1f;
-            ShiftTweenPoints();
+            tweenValue += moveSpeed * Time.deltaTime;
+            if (tweenValue > 1f)
+            {
+                tweenValue -= 1f;
+                ShiftTweenPoints();
+            }
+            transform.position = Vector3.Lerp(tweenPoints[tweenA], tweenPoints[tweenB], tweenValue);
         }
-        transform.position = Vector3.Lerp(tweenPoints[tweenA], tweenPoints[tweenB], tweenValue);
+        else
+        {
+            tweenValue -= moveSpeed * Time.deltaTime;
+            if (tweenValue < 0f)
+            {
+                tweenValue += 1f;
+                ShiftTweenPoints();
+            }
+            transform.position = Vector3.Lerp(tweenPoints[tweenA], tweenPoints[tweenB], tweenValue);
+        }
     }
 
     private void MatchToRotator()
@@ -218,9 +231,10 @@ public class Projectile : MonoBehaviour
             }
             else
             {
-                tweenB = Mathf.FloorToInt(info.startPoint / 0.25f);
+                tweenB = Mathf.FloorToInt(info.startPoint / 0.25f) + 1;
+                if (tweenB == 4) { tweenB = 0; }
                 tweenA = tweenB - 1;
-                if (tweenB == -1) { tweenB = 3; }
+                if (tweenA == -1) { tweenA = 3; }
             }
         }
     }
